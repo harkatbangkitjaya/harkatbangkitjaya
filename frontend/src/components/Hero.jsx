@@ -5,23 +5,28 @@ import { companyInfo } from '../data/mock';
 
 const Hero = () => {
   return (
-    <section id="hero" className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Background Image with Overlay */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src="https://images.unsplash.com/photo-1748956628042-b73331e0b479"
-          alt="Construction Hero"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-900/85 to-slate-900/60"></div>
+    <section id="hero" className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+      {/* 3D Background Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Geometric shapes for depth */}
+        <div className="absolute top-20 right-20 w-96 h-96 bg-orange-600/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 left-20 w-80 h-80 bg-orange-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/2 w-72 h-72 bg-orange-700/5 rounded-full blur-3xl"></div>
+        
+        {/* Grid pattern */}
+        <div className="absolute inset-0 opacity-[0.03]" style={{
+          backgroundImage: `linear-gradient(to right, #ea580c 1px, transparent 1px),
+                           linear-gradient(to bottom, #ea580c 1px, transparent 1px)`,
+          backgroundSize: '80px 80px'
+        }}></div>
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
-        <div className="max-w-3xl">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 w-full">
+        <div className="max-w-4xl mx-auto text-center">
           {/* Badge */}
-          <div className="inline-flex items-center px-4 py-2 bg-orange-600/20 border border-orange-500/30 rounded-full mb-6 backdrop-blur-sm">
-            <span className="text-orange-400 font-semibold text-sm">Kontraktor Terpercaya Sejak 2025</span>
+          <div className="inline-flex items-center px-6 py-3 bg-orange-600/20 border border-orange-500/30 rounded-full mb-8 backdrop-blur-sm">
+            <span className="text-orange-400 font-semibold">Kontraktor Terpercaya Sejak 2025</span>
           </div>
 
           {/* Main Heading */}
@@ -30,14 +35,14 @@ const Hero = () => {
           </h1>
 
           {/* Subheading */}
-          <p className="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed">
+          <p className="text-xl md:text-2xl text-gray-300 mb-10 leading-relaxed max-w-3xl mx-auto">
             PT. Harkat Bangkit Jaya menyediakan layanan konstruksi, pemeliharaan bangunan, dan desain arsitektur dengan standar kualitas terbaik.
           </p>
 
           {/* Features List */}
-          <div className="flex flex-wrap gap-4 mb-10">
+          <div className="flex flex-wrap justify-center gap-4 mb-12">
             {['Kualitas Terjamin', 'Tim Profesional', 'Harga Kompetitif'].map((feature, index) => (
-              <div key={index} className="flex items-center gap-2 bg-slate-800/50 px-4 py-2 rounded-lg backdrop-blur-sm">
+              <div key={index} className="flex items-center gap-2 bg-slate-800/50 backdrop-blur-sm px-6 py-3 rounded-lg border border-slate-700">
                 <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
                 <span className="text-gray-200 font-medium">{feature}</span>
               </div>
@@ -45,7 +50,7 @@ const Hero = () => {
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
               size="lg"
               onClick={() => window.open(companyInfo.whatsapp, '_blank')}
@@ -68,23 +73,20 @@ const Hero = () => {
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-3 gap-8 mt-16 pt-8 border-t border-gray-700">
+          <div className="grid grid-cols-3 gap-8 mt-20 pt-12 border-t border-gray-700/50">
             {[
               { number: '100+', label: 'Proyek' },
               { number: '50+', label: 'Klien' },
               { number: '100%', label: 'Kepuasan' }
             ].map((stat, index) => (
               <div key={index} className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-orange-500 mb-2">{stat.number}</div>
-                <div className="text-gray-400 text-sm md:text-base">{stat.label}</div>
+                <div className="text-4xl md:text-5xl font-bold text-orange-500 mb-2">{stat.number}</div>
+                <div className="text-gray-400 text-base md:text-lg">{stat.label}</div>
               </div>
             ))}
           </div>
         </div>
       </div>
-
-      {/* Decorative Elements */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-slate-900 to-transparent z-10"></div>
     </section>
   );
 };

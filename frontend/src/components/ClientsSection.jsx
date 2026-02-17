@@ -17,8 +17,14 @@ const ClientsSection = () => {
   const allClients = [...clients, ...clients];
 
   return (
-    <section className="py-16 bg-slate-800 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
+    <section className="relative py-16 bg-slate-800 overflow-hidden">
+      {/* 3D Background */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-10 left-10 w-64 h-64 bg-orange-600/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-10 right-10 w-80 h-80 bg-orange-500/5 rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
         <div className="text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
             Klien <span className="text-orange-500">Kami</span>

@@ -21,7 +21,7 @@ function App() {
 }
 
 function AppContent() {
-  const { isDark } = require('./contexts/ThemeContext').useTheme();
+  const { isDark } = useTheme();
   
   return (
     <div className={`App ${isDark ? 'bg-slate-900' : 'bg-gray-50'} transition-colors duration-300`}>

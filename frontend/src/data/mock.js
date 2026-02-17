@@ -98,6 +98,11 @@ export const values = [
   }
 ];
 
+export const companyImages = {
+  worker: "https://customer-assets.emergentagent.com/job_profile-modern-2/artifacts/oxrl4y74_image.png",
+  logo: "https://customer-assets.emergentagent.com/job_profile-modern-2/artifacts/f0tvsa3n_image.png"
+};
+
 export const projects = [
   {
     id: 1,

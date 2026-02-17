@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
@@ -6,7 +6,7 @@ import { Button } from './ui/button';
 import { Label } from './ui/label';
 import { Phone, Mail, MapPin, Send } from 'lucide-react';
 import { toast } from 'sonner';
-import { companyInfo } from '../data/mock';
+import { companyInfo, companyImages } from '../data/mock';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -16,6 +16,16 @@ const Contact = () => {
     subject: '',
     message: ''
   });
+
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const handleChange = (e) => {
     setFormData({
@@ -44,8 +54,23 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-24 bg-slate-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="relative py-24 overflow-hidden">
+      {/* Parallax Background */}
+      <div 
+        className="absolute inset-0 z-0"
+        style={{
+          transform: `translateY(${scrollY * 0.2}px)`,
+        }}
+      >
+        <img
+          src={companyImages.worker}
+          alt="Contact Background"
+          className="w-full h-full object-cover opacity-8"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-900 via-slate-900/97 to-slate-900"></div>
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center px-4 py-2 bg-orange-600/20 border border-orange-500/30 rounded-full mb-4">

@@ -1,16 +1,48 @@
 import React from 'react';
 
 const ClientsSection = () => {
-  // Mock client logos - in production, these would be actual logo URLs
+  // Client logos dengan placeholder images
   const clients = [
-    { id: 1, name: 'PT. Maju Bersama' },
-    { id: 2, name: 'Grand Mall Tasikmalaya' },
-    { id: 3, name: 'Hotel Tasik Indah' },
-    { id: 4, name: 'Tasik Property' },
-    { id: 5, name: 'Bank Mandiri Tasikmalaya' },
-    { id: 6, name: 'RS Umum Tasikmalaya' },
-    { id: 7, name: 'Pemkot Tasikmalaya' },
-    { id: 8, name: 'Plaza Tasikmalaya' }
+    { 
+      id: 1, 
+      name: 'PT. Maju Bersama',
+      logo: 'https://logo.clearbit.com/mandiri.co.id'
+    },
+    { 
+      id: 2, 
+      name: 'Grand Mall Tasikmalaya',
+      logo: 'https://logo.clearbit.com/lippo-malls.com'
+    },
+    { 
+      id: 3, 
+      name: 'Hotel Tasik Indah',
+      logo: 'https://logo.clearbit.com/marriott.com'
+    },
+    { 
+      id: 4, 
+      name: 'Tasik Property',
+      logo: 'https://logo.clearbit.com/sinarmasland.com'
+    },
+    { 
+      id: 5, 
+      name: 'Bank Mandiri',
+      logo: 'https://logo.clearbit.com/bankmandiri.co.id'
+    },
+    { 
+      id: 6, 
+      name: 'RS Umum',
+      logo: 'https://logo.clearbit.com/siloamhospitals.com'
+    },
+    { 
+      id: 7, 
+      name: 'Pemkot Tasikmalaya',
+      logo: 'https://logo.clearbit.com/go.id'
+    },
+    { 
+      id: 8, 
+      name: 'Plaza Tasikmalaya',
+      logo: 'https://logo.clearbit.com/plazaindonesia.com'
+    }
   ];
 
   // Duplicate clients for seamless loop
@@ -46,12 +78,19 @@ const ClientsSection = () => {
           {allClients.map((client, index) => (
             <div
               key={`${client.id}-${index}`}
-              className="flex-shrink-0 mx-8"
+              className="flex-shrink-0 mx-6"
             >
-              <div className="w-48 h-24 bg-slate-700/50 backdrop-blur-sm rounded-lg border border-slate-600 hover:border-orange-500 transition-all duration-300 flex items-center justify-center group hover:scale-105">
-                <span className="text-gray-300 group-hover:text-orange-500 font-semibold text-center px-4 transition-colors">
-                  {client.name}
-                </span>
+              <div className="w-40 h-28 bg-white/5 backdrop-blur-sm rounded-xl border border-slate-700 hover:border-orange-500 transition-all duration-300 flex items-center justify-center p-6 group hover:scale-110 hover:bg-white/10">
+                <img
+                  src={client.logo}
+                  alt={client.name}
+                  className="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-300 opacity-70 group-hover:opacity-100"
+                  onError={(e) => {
+                    // Fallback jika logo tidak load
+                    e.target.style.display = 'none';
+                    e.target.parentElement.innerHTML = `<span class="text-gray-400 group-hover:text-orange-500 font-semibold text-center text-sm transition-colors">${client.name}</span>`;
+                  }}
+                />
               </div>
             </div>
           ))}

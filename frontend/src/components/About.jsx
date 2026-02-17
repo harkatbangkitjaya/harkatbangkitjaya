@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Card, CardContent } from './ui/card';
 import { Shield, Users, Heart, BookOpen, CheckCircle } from 'lucide-react';
-import { visionMission, values, companyInfo } from '../data/mock';
+import { visionMission, values, companyInfo, companyImages, marketingCopy } from '../data/mock';
 
 const iconMap = {
   Users,
@@ -11,62 +11,85 @@ const iconMap = {
 };
 
 const About = () => {
-  const [scrollY, setScrollY] = useState(0);
+  const [offsetY, setOffsetY] = useState(0);
 
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      setScrollY(window.scrollY);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setOffsetY(window.pageYOffset);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
-    window.addEventListener('scroll', handleScroll);
+    
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
-    <section id="about" className="relative py-24 overflow-hidden">
-      {/* Parallax Background */}
-      <div 
-        className="absolute inset-0 z-0"
-        style={{
-          transform: `translateY(${scrollY * 0.2}px)`,
-        }}
-      >
-        <img
-          src="https://images.unsplash.com/photo-1748956628042-b73331e0b479"
-          alt="Construction Background"
-          className="w-full h-full object-cover opacity-15"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-800/90 via-slate-800/90 to-slate-800"></div>
-      </div>
-
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="about" className="relative py-24 bg-slate-800 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center px-4 py-2 bg-orange-600/20 border border-orange-500/30 rounded-full mb-4">
-            <span className="text-orange-400 font-semibold text-sm">Tentang Kami</span>
+            <span className="text-orange-400 font-semibold text-sm">{marketingCopy.about.tagline}</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Berkomitmen untuk <span className="text-orange-500">Kualitas & Keselamatan</span>
+            {marketingCopy.about.title}
           </h2>
+          <p className="text-2xl text-orange-500 font-semibold mb-4">
+            {marketingCopy.about.subtitle}
+          </p>
         </div>
 
-        {/* Company Description */}
-        <div className="mb-16">
-          <Card className="bg-slate-900 border-slate-700">
-            <CardContent className="p-8 md:p-12">
-              <p className="text-gray-300 text-lg leading-relaxed mb-6">
-                {companyInfo.description}
-              </p>
-              <p className="text-gray-300 text-lg leading-relaxed">
-                Kami berkomitmen untuk menyediakan kontrol kualitas proyek kelas satu dan layanan teknis premium di bidang rekayasa proyek, pengadaan, fabrikasi, dan khususnya layanan pemeliharaan bangunan.
-              </p>
-            </CardContent>
-          </Card>
+        {/* Company Description with Circular Image */}
+        <div className="mb-16 grid lg:grid-cols-2 gap-12 items-center">
+          {/* Circular Hero Image */}
+          <div className="relative flex justify-center lg:justify-start order-2 lg:order-1">
+            <div 
+              className="relative w-80 h-80 lg:w-96 lg:h-96"
+              style={{
+                transform: `translateY(${offsetY * 0.03}px)`,
+                transition: 'transform 0.1s ease-out'
+              }}
+            >
+              {/* Decorative circle */}
+              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-orange-600/30 to-orange-800/30 blur-2xl"></div>
+              {/* Image circle */}
+              <img
+                src={companyImages.workerCircular}
+                alt="Construction Professional"
+                className="relative w-full h-full object-cover rounded-full border-4 border-orange-500/50 shadow-2xl shadow-orange-500/20"
+              />
+              {/* Badge */}
+              <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-orange-600 text-white px-6 py-3 rounded-full font-bold shadow-lg whitespace-nowrap">
+                Komitmen Kualitas 100%
+              </div>
+            </div>
+          </div>
+
+          {/* Description */}
+          <div className="order-1 lg:order-2">
+            <Card className="bg-slate-900/90 backdrop-blur-sm border-slate-700">
+              <CardContent className="p-8 md:p-12">
+                <p className="text-gray-300 text-lg leading-relaxed mb-6">
+                  {companyInfo.description}
+                </p>
+                <p className="text-gray-300 text-lg leading-relaxed">
+                  Kami berkomitmen untuk menyediakan kontrol kualitas proyek kelas satu dan layanan teknis premium di bidang rekayasa proyek, pengadaan, fabrikasi, dan khususnya layanan pemeliharaan bangunan.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
         </div>
 
         {/* Vision & Mission */}
         <div className="grid md:grid-cols-2 gap-8 mb-16">
           {/* Vision */}
-          <Card className="bg-gradient-to-br from-slate-900 to-slate-800 border-slate-700 hover:border-orange-500/50 transition-all duration-300">
+          <Card className="bg-gradient-to-br from-slate-900/90 to-slate-800/90 backdrop-blur-sm border-slate-700 hover:border-orange-500/50 transition-all duration-300">
             <CardContent className="p-8">
               <h3 className="text-2xl font-bold text-orange-500 mb-6">Visi Kami</h3>
               <div className="space-y-4">
@@ -81,7 +104,7 @@ const About = () => {
           </Card>
 
           {/* Mission */}
-          <Card className="bg-gradient-to-br from-slate-900 to-slate-800 border-slate-700 hover:border-orange-500/50 transition-all duration-300">
+          <Card className="bg-gradient-to-br from-slate-900/90 to-slate-800/90 backdrop-blur-sm border-slate-700 hover:border-orange-500/50 transition-all duration-300">
             <CardContent className="p-8">
               <h3 className="text-2xl font-bold text-orange-500 mb-6">Misi Kami</h3>
               <p className="text-gray-300 leading-relaxed">
@@ -100,7 +123,7 @@ const About = () => {
               return (
                 <Card
                   key={value.id}
-                  className="bg-slate-900 border-slate-700 hover:border-orange-500/50 transition-all duration-300 hover:scale-105 group"
+                  className="bg-slate-900/90 backdrop-blur-sm border-slate-700 hover:border-orange-500/50 transition-all duration-300 hover:scale-105 group"
                 >
                   <CardContent className="p-6 text-center">
                     <div className="w-16 h-16 bg-orange-600/20 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-orange-600 transition-all duration-300">

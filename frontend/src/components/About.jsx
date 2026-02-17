@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Card, CardContent } from './ui/card';
 import { Shield, Users, Heart, BookOpen, CheckCircle } from 'lucide-react';
-import { visionMission, values, companyInfo, companyImages, marketingCopy } from '../data/mock';
+import { visionMission, values, companyInfo, marketingCopy } from '../data/mock';
 
 const iconMap = {
   Users,
@@ -31,7 +31,32 @@ const About = () => {
 
   return (
     <section id="about" className="relative py-24 bg-slate-800 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      {/* Parallax Background Layer */}
+      <div 
+        className="absolute inset-0 z-0"
+        style={{
+          transform: `translateY(${offsetY * 0.15}px)`,
+          transition: 'transform 0.1s ease-out'
+        }}
+      >
+        <div className="absolute inset-0 bg-slate-800"></div>
+        <div className="absolute top-0 left-0 w-full h-full opacity-10">
+          <img
+            src="https://images.unsplash.com/photo-1748956628042-b73331e0b479"
+            alt=""
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-800/90 via-slate-800/95 to-slate-800"></div>
+      </div>
+
+      {/* 3D Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+        <div className="absolute top-20 right-20 w-96 h-96 bg-orange-600/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 left-20 w-80 h-80 bg-orange-500/5 rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center px-4 py-2 bg-orange-600/20 border border-orange-500/30 rounded-full mb-4">
@@ -45,47 +70,22 @@ const About = () => {
           </p>
         </div>
 
-        {/* Company Description with Circular Image */}
-        <div className="mb-16 grid lg:grid-cols-2 gap-12 items-center">
-          {/* Circular Hero Image */}
-          <div className="relative flex justify-center lg:justify-start order-2 lg:order-1">
-            <div 
-              className="relative w-80 h-80 lg:w-96 lg:h-96"
-              style={{
-                transform: `translateY(${offsetY * 0.03}px)`,
-                transition: 'transform 0.1s ease-out'
-              }}
-            >
-              {/* Image circle */}
-              <img
-                src={companyImages.workerCircular}
-                alt="Construction Professional"
-                className="relative w-full h-full object-cover rounded-full border-4 border-orange-500/50 shadow-2xl shadow-orange-500/20"
-              />
-              {/* Badge */}
-              <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-orange-600 text-white px-6 py-3 rounded-full font-bold shadow-lg whitespace-nowrap">
-                Komitmen Kualitas 100%
-              </div>
-            </div>
-          </div>
-
-          {/* Description */}
-          <div className="order-1 lg:order-2">
-            <Card className="bg-slate-900/90 backdrop-blur-sm border-slate-700">
-              <CardContent className="p-8 md:p-12">
-                <p className="text-gray-300 text-lg leading-relaxed mb-6">
-                  {companyInfo.description}
-                </p>
-                <p className="text-gray-300 text-lg leading-relaxed">
-                  Kami berkomitmen untuk menyediakan kontrol kualitas proyek kelas satu dan layanan teknis premium di bidang rekayasa proyek, pengadaan, fabrikasi, dan khususnya layanan pemeliharaan bangunan.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
+        {/* Company Description - Full Width, No Circular Image */}
+        <div className="mb-16 max-w-4xl mx-auto">
+          <Card className="bg-slate-900/90 backdrop-blur-sm border-slate-700">
+            <CardContent className="p-8 md:p-12">
+              <p className="text-gray-300 text-lg leading-relaxed mb-6">
+                {companyInfo.description}
+              </p>
+              <p className="text-gray-300 text-lg leading-relaxed">
+                Kami berkomitmen untuk menyediakan kontrol kualitas proyek kelas satu dan layanan teknis premium di bidang rekayasa proyek, pengadaan, fabrikasi, dan khususnya layanan pemeliharaan bangunan.
+              </p>
+            </CardContent>
+          </Card>
         </div>
 
         {/* Vision & Mission */}
-        <div className="grid md:grid-cols-2 gap-8 mb-16">
+        <div className="grid md:grid-cols-2 gap-8 mb-16 max-w-6xl mx-auto">
           {/* Vision */}
           <Card className="bg-gradient-to-br from-slate-900/90 to-slate-800/90 backdrop-blur-sm border-slate-700 hover:border-orange-500/50 transition-all duration-300">
             <CardContent className="p-8">

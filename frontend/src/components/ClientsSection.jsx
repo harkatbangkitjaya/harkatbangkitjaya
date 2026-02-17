@@ -1,52 +1,33 @@
 import React from 'react';
 
 const ClientsSection = () => {
-  // Client logos dengan placeholder images
+  // Client dengan SVG placeholders untuk logo
   const clients = [
-    { 
-      id: 1, 
-      name: 'PT. Maju Bersama',
-      logo: 'https://logo.clearbit.com/mandiri.co.id'
-    },
-    { 
-      id: 2, 
-      name: 'Grand Mall Tasikmalaya',
-      logo: 'https://logo.clearbit.com/lippo-malls.com'
-    },
-    { 
-      id: 3, 
-      name: 'Hotel Tasik Indah',
-      logo: 'https://logo.clearbit.com/marriott.com'
-    },
-    { 
-      id: 4, 
-      name: 'Tasik Property',
-      logo: 'https://logo.clearbit.com/sinarmasland.com'
-    },
-    { 
-      id: 5, 
-      name: 'Bank Mandiri',
-      logo: 'https://logo.clearbit.com/bankmandiri.co.id'
-    },
-    { 
-      id: 6, 
-      name: 'RS Umum',
-      logo: 'https://logo.clearbit.com/siloamhospitals.com'
-    },
-    { 
-      id: 7, 
-      name: 'Pemkot Tasikmalaya',
-      logo: 'https://logo.clearbit.com/go.id'
-    },
-    { 
-      id: 8, 
-      name: 'Plaza Tasikmalaya',
-      logo: 'https://logo.clearbit.com/plazaindonesia.com'
-    }
+    { id: 1, name: 'PT. Maju Bersama', color: '#0066CC' },
+    { id: 2, name: 'Grand Mall', color: '#E31837' },
+    { id: 3, name: 'Hotel Tasik Indah', color: '#6A1B9A' },
+    { id: 4, name: 'Tasik Property', color: '#00897B' },
+    { id: 5, name: 'Bank Mandiri', color: '#003D7A' },
+    { id: 6, name: 'RS Umum', color: '#D32F2F' },
+    { id: 7, name: 'Pemkot Tasikmalaya', color: '#F57C00' },
+    { id: 8, name: 'Plaza Tasikmalaya', color: '#7B1FA2' }
   ];
 
   // Duplicate clients for seamless loop
   const allClients = [...clients, ...clients];
+
+  // Generate simple logo SVG
+  const generateLogo = (name, color) => {
+    const initials = name.split(' ').map(word => word[0]).join('').substring(0, 2);
+    return (
+      <svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+        <rect width="80" height="80" rx="8" fill={color} className="logo-bg transition-all duration-300"/>
+        <text x="50%" y="50%" textAnchor="middle" dy=".3em" fill="white" fontSize="24" fontWeight="bold" className="logo-text">
+          {initials}
+        </text>
+      </svg>
+    );
+  };
 
   return (
     <section className="relative py-16 bg-slate-800 overflow-hidden">
@@ -80,22 +61,21 @@ const ClientsSection = () => {
               key={`${client.id}-${index}`}
               className="flex-shrink-0 mx-6"
             >
-              <div className="w-40 h-28 bg-white/5 backdrop-blur-sm rounded-xl border border-slate-700 hover:border-orange-500 transition-all duration-300 flex items-center justify-center p-6 group hover:scale-110 hover:bg-white/10">
-                <img
-                  src={client.logo}
-                  alt={client.name}
-                  className="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-300 opacity-70 group-hover:opacity-100"
-                  onError={(e) => {
-                    // Fallback jika logo tidak load
-                    e.target.style.display = 'none';
-                    e.target.parentElement.innerHTML = `<span class="text-gray-400 group-hover:text-orange-500 font-semibold text-center text-sm transition-colors">${client.name}</span>`;
-                  }}
-                />
+              <div className="w-44 h-32 bg-white/5 backdrop-blur-sm rounded-xl border border-slate-700 hover:border-orange-500 transition-all duration-300 flex items-center justify-center p-6 group hover:scale-110 hover:bg-white/10 logo-container">
+                <div className="grayscale-[100%] group-hover:grayscale-0 transition-all duration-300 opacity-60 group-hover:opacity-100">
+                  {generateLogo(client.name, client.color)}
+                </div>
               </div>
             </div>
           ))}
         </div>
       </div>
+
+      <style jsx>{`
+        .logo-container:hover .logo-bg {
+          filter: brightness(1.1);
+        }
+      `}</style>
     </section>
   );
 };

@@ -30,40 +30,43 @@ Buatkan landing page yang modern dan minimalist serta eye catching sesuai compan
 
 ## What's Been Implemented (Desember 17, 2025)
 
-### Frontend (Mock Data - Phase 1) ✅ UPDATED
-✅ **Komponen yang Dibuat:**
-- `/app/frontend/src/data/mock.js` - Mock data untuk seluruh landing page + company images
-- `/app/frontend/src/components/Navbar.jsx` - Navigation bar responsive dengan smooth scroll (FIXED - solid navbar)
+### Frontend (Mock Data - Phase 1) ✅ ENHANCED v2.0
+✅ **Komponen yang Dibuat & Ditingkatkan:**
+- `/app/frontend/src/data/mock.js` - Mock data + company images + marketing copy
+- `/app/frontend/src/components/Navbar.jsx` - Fixed solid navbar dengan backdrop blur
 - `/app/frontend/src/components/Hero.jsx` - Hero section dengan CTA buttons
-- `/app/frontend/src/components/Services.jsx` - 8 service cards dengan parallax background (worker image)
-- `/app/frontend/src/components/About.jsx` - About section dengan visi, misi, nilai + parallax background
-- `/app/frontend/src/components/Portfolio.jsx` - Portfolio dengan category filter + parallax background (worker image)
-- `/app/frontend/src/components/Testimonials.jsx` - 4 testimonial cards + parallax background
-- `/app/frontend/src/components/Contact.jsx` - Contact form dan info cards + parallax background (worker image)
-- `/app/frontend/src/components/Footer.jsx` - Footer dengan quick links dan social media
+- `/app/frontend/src/components/Services.jsx` - **NEW: Circular hero image + marketing copy + smooth parallax**
+- `/app/frontend/src/components/About.jsx` - **NEW: Circular hero image + enhanced layout**
+- `/app/frontend/src/components/Portfolio.jsx` - Portfolio dengan CTA section yang prominent
+- `/app/frontend/src/components/Testimonials.jsx` - Clean testimonials tanpa parallax lag
+- `/app/frontend/src/components/Contact.jsx` - Contact form dengan backdrop blur
+- `/app/frontend/src/components/Footer.jsx` - Footer lengkap
 - `/app/frontend/src/App.js` - Main app component
-- `/app/frontend/src/App.css` - Custom styling dan animations
+- `/app/frontend/src/App.css` - Custom styling
 
-✅ **Design Features:**
-- Modern minimalist design dengan warna konstruksi (orange #ea580c, slate dark)
-- **NEW: Parallax scroll effect pada semua section backgrounds**
-- **NEW: Company worker images digunakan sebagai background dengan parallax**
-- **NEW: Fixed/solid navbar yang lebih prominent**
-- Fully responsive untuk mobile, tablet, dan desktop
-- Smooth scroll navigation
-- Hover effects dan transitions
-- Glass-morphism effects pada beberapa elemen
+✅ **Design Features v2.0:**
+- **FIXED: Parallax yang smooth** menggunakan requestAnimationFrame (tidak lag)
+- **FIXED: Cards tidak nembus background** - proper z-index dengan backdrop-blur
+- **NEW: Circular hero images** di Services & About sections
+- **NEW: Marketing taglines** yang menarik di setiap section
+- **NEW: Enhanced CTA section** di Portfolio dengan gradient background
+- Modern minimalist design dengan warna konstruksi profesional
+- Fully responsive untuk semua devices
+- Smooth animations tanpa lag
 - Professional construction-themed color scheme
 
-✅ **Functional Features:**
-- Working navigation dengan smooth scroll ke sections
-- Mobile-responsive hamburger menu
-- WhatsApp CTA button yang terintegrasi
-- Email link yang berfungsi
-- Contact form dengan toast notification (mock submission)
-- Portfolio category filter yang berfungsi
-- **NEW: Parallax effect yang smooth saat scroll**
-- Semua interaksi frontend berfungsi dengan baik
+✅ **Marketing Copy Added:**
+- "Layanan Berkelas Dunia - Kami Tidak Hanya Membangun, Kami Menciptakan Karya"
+- "Keahlian yang Terbukti - 15+ Tahun Pengalaman Membangun Masa Depan"
+- "Portfolio Kebanggaan Kami - Setiap Proyek adalah Masterpiece"
+- "Wujudkan Proyek Impian Anda Bersama Kami"
+- "Konsultasi Gratis - Tim Profesional Siap Membantu 24/7"
+
+✅ **Performance Improvements:**
+- Throttled scroll events dengan requestAnimationFrame
+- Optimized parallax calculations
+- Better backdrop-blur untuk cards
+- Smooth 60fps animations
 
 ## Tech Stack
 - **Frontend**: React 19, Tailwind CSS, Shadcn UI

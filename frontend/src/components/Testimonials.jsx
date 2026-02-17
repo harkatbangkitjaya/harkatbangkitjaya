@@ -5,8 +5,27 @@ import { testimonials } from '../data/mock';
 
 const Testimonials = () => {
   return (
-    <section id="testimonials" className="py-24 bg-slate-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="testimonials" className="relative py-24 bg-slate-800 overflow-hidden">
+      {/* 3D Background Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Geometric shapes */}
+        <div className="absolute top-10 right-10 w-80 h-80 bg-orange-600/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-10 left-10 w-96 h-96 bg-orange-500/5 rounded-full blur-3xl"></div>
+        
+        {/* Diagonal lines for depth */}
+        <div className="absolute inset-0 opacity-[0.02]">
+          <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <pattern id="diagonalLines" patternUnits="userSpaceOnUse" width="50" height="50">
+                <path d="M-1,1 l2,-2 M0,50 l50,-50 M49,51 l2,-2" stroke="#ea580c" strokeWidth="1"/>
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#diagonalLines)" />
+          </svg>
+        </div>
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center px-4 py-2 bg-orange-600/20 border border-orange-500/30 rounded-full mb-4">

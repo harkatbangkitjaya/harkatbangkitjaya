@@ -63,8 +63,6 @@ const Services = () => {
                 transition: 'transform 0.1s ease-out'
               }}
             >
-              {/* Decorative circle */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-orange-600/30 to-orange-800/30 blur-2xl"></div>
               {/* Image circle */}
               <img
                 src={companyImages.workerCircular}

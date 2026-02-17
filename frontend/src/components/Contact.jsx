@@ -44,8 +44,28 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-24 bg-slate-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="relative py-24 bg-slate-900 overflow-hidden">
+      {/* 3D Background Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Geometric shapes for 3D depth */}
+        <div className="absolute top-20 right-1/4 w-72 h-72 bg-orange-600/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 left-1/4 w-80 h-80 bg-orange-500/5 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-10 w-64 h-64 bg-orange-700/5 rounded-full blur-3xl"></div>
+        
+        {/* Hexagon pattern for depth */}
+        <div className="absolute inset-0 opacity-[0.015]">
+          <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <pattern id="hexagons" patternUnits="userSpaceOnUse" width="100" height="100">
+                <path d="M25,0 L75,0 L100,43.3 L75,86.6 L25,86.6 L0,43.3 Z" fill="none" stroke="#ea580c" strokeWidth="1"/>
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#hexagons)" />
+          </svg>
+        </div>
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center px-4 py-2 bg-orange-600/20 border border-orange-500/30 rounded-full mb-4">

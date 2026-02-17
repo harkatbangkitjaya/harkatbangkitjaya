@@ -45,28 +45,28 @@ const Services = () => {
           transition: 'transform 0.1s ease-out'
         }}
       >
-        <div className="absolute inset-0 bg-slate-900"></div>
-        <div className="absolute top-0 left-0 w-full h-full opacity-10">
+        <div className={`absolute inset-0 ${isDark ? 'bg-slate-900' : 'bg-white'}`}></div>
+        <div className={`absolute top-0 left-0 w-full h-full ${isDark ? 'opacity-10' : 'opacity-5'}`}>
           <img
             src="https://images.unsplash.com/photo-1759170154403-da5c94821be6"
             alt=""
             className="w-full h-full object-cover"
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/90 via-slate-900/95 to-slate-900"></div>
+        <div className={`absolute inset-0 ${isDark ? 'bg-gradient-to-b from-slate-900/90 via-slate-900/95 to-slate-900' : 'bg-gradient-to-b from-white/90 via-white/95 to-white'}`}></div>
       </div>
 
       {/* 3D Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-        <div className="absolute top-10 right-10 w-72 h-72 bg-orange-600/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-10 left-10 w-80 h-80 bg-orange-500/5 rounded-full blur-3xl"></div>
+        <div className={`absolute top-10 right-10 w-72 h-72 ${isDark ? 'bg-orange-600/5' : 'bg-orange-600/10'} rounded-full blur-3xl`}></div>
+        <div className={`absolute bottom-10 left-10 w-80 h-80 ${isDark ? 'bg-orange-500/5' : 'bg-orange-500/10'} rounded-full blur-3xl`}></div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center px-4 py-2 bg-orange-600/20 border border-orange-500/30 rounded-full mb-4">
-            <span className="text-orange-400 font-semibold text-sm">{marketingCopy.services.tagline}</span>
+          <div className={`inline-flex items-center px-4 py-2 ${isDark ? 'bg-orange-600/20' : 'bg-orange-100'} border ${isDark ? 'border-orange-500/30' : 'border-orange-300'} rounded-full mb-4`}>
+            <span className={`${isDark ? 'text-orange-400' : 'text-orange-600'} font-semibold text-sm`}>{marketingCopy.services.tagline}</span>
           </div>
           <h2 className={`text-4xl md:text-5xl font-bold ${isDark ? 'text-white' : 'text-slate-900'} mb-4`}>
             {marketingCopy.services.title}
@@ -86,7 +86,7 @@ const Services = () => {
             return (
               <Card
                 key={service.id}
-                className={`${isDark ? 'bg-slate-800/90 border-slate-700' : 'bg-white border-gray-200'} backdrop-blur-sm hover:border-orange-500/50 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-orange-500/10 group`}
+                className={`${isDark ? 'bg-slate-800/90 border-slate-700' : 'bg-white border-gray-200 shadow-lg'} backdrop-blur-sm hover:border-orange-500/50 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-orange-500/10 group`}
               >
                 <CardHeader>
                   <div className="w-14 h-14 bg-orange-600/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-orange-600 transition-all duration-300">
@@ -107,8 +107,8 @@ const Services = () => {
         </div>
 
         {/* CTA Section */}
-        <div className="mt-16 text-center bg-gradient-to-r from-slate-800/50 to-slate-700/50 backdrop-blur-sm rounded-2xl p-8 border border-slate-700">
-          <p className="text-gray-300 mb-4 text-lg">
+        <div className={`mt-16 text-center ${isDark ? 'bg-gradient-to-r from-slate-800/50 to-slate-700/50 border-slate-700' : 'bg-gradient-to-r from-orange-50 to-orange-100 border-orange-200'} backdrop-blur-sm rounded-2xl p-8 border`}>
+          <p className={`${isDark ? 'text-gray-300' : 'text-slate-700'} mb-4 text-lg`}>
             Tidak menemukan layanan yang Anda cari?
           </p>
           <button

@@ -100,7 +100,30 @@ export const values = [
 
 export const companyImages = {
   worker: "https://customer-assets.emergentagent.com/job_profile-modern-2/artifacts/oxrl4y74_image.png",
+  workerCircular: "https://customer-assets.emergentagent.com/job_profile-modern-2/artifacts/q8j45h8f_image.png",
   logo: "https://customer-assets.emergentagent.com/job_profile-modern-2/artifacts/f0tvsa3n_image.png"
+};
+
+export const marketingCopy = {
+  services: {
+    title: "Layanan Berkelas Dunia",
+    subtitle: "Kami Tidak Hanya Membangun, Kami Menciptakan Karya",
+    tagline: "Dipercaya oleh 50+ perusahaan terkemuka di Indonesia"
+  },
+  about: {
+    title: "Keahlian yang Terbukti",
+    subtitle: "15+ Tahun Pengalaman Membangun Masa Depan",
+    tagline: "Safety First, Quality Always"
+  },
+  portfolio: {
+    title: "Portfolio Kebanggaan Kami",
+    subtitle: "Setiap Proyek adalah Masterpiece",
+    tagline: "100+ Proyek Selesai dengan Sempurna"
+  },
+  cta: {
+    primary: "Wujudkan Proyek Impian Anda Bersama Kami",
+    secondary: "Konsultasi Gratis - Tim Profesional Siap Membantu 24/7"
+  }
 };
 
 export const projects = [

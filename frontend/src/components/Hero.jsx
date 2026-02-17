@@ -1,9 +1,67 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Button } from './ui/button';
 import { ArrowRight, Phone, Mail } from 'lucide-react';
 import { companyInfo } from '../data/mock';
 
+// Custom hook for counting animation
+const useCountUp = (end, duration = 2000, startCounting = false) => {
+  const [count, setCount] = useState(0);
+  
+  useEffect(() => {
+    if (!startCounting) return;
+    
+    let startTime = null;
+    const endValue = parseInt(end.replace(/[^0-9]/g, '')) || 0;
+    
+    const animate = (currentTime) => {
+      if (!startTime) startTime = currentTime;
+      const progress = Math.min((currentTime - startTime) / duration, 1);
+      
+      // Easing function for smooth animation
+      const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+      setCount(Math.floor(easeOutQuart * endValue));
+      
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      }
+    };
+    
+    requestAnimationFrame(animate);
+  }, [end, duration, startCounting]);
+  
+  // Format the count with the original suffix (+, %)
+  const suffix = end.includes('%') ? '%' : end.includes('+') ? '+' : '';
+  return count + suffix;
+};
+
 const Hero = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const statsRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    if (statsRef.current) {
+      observer.observe(statsRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  const stats = [
+    { number: '100+', label: 'Proyek' },
+    { number: '50+', label: 'Klien' },
+    { number: '100%', label: 'Kepuasan' }
+  ];
+
   return (
     <section id="hero" className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
       {/* 3D Background Elements */}
@@ -72,22 +130,43 @@ const Hero = () => {
             </Button>
           </div>
 
-          {/* Stats */}
-          <div className="grid grid-cols-3 gap-8 mt-20 pt-12 border-t border-gray-700/50">
-            {[
-              { number: '100+', label: 'Proyek' },
-              { number: '50+', label: 'Klien' },
-              { number: '100%', label: 'Kepuasan' }
-            ].map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="text-4xl md:text-5xl font-bold text-orange-500 mb-2">{stat.number}</div>
-                <div className="text-gray-400 text-base md:text-lg">{stat.label}</div>
-              </div>
+          {/* Stats with Counter Animation */}
+          <div ref={statsRef} className="grid grid-cols-3 gap-8 mt-20 pt-12 border-t border-gray-700/50">
+            {stats.map((stat, index) => (
+              <StatItem 
+                key={index} 
+                number={stat.number} 
+                label={stat.label} 
+                isVisible={isVisible}
+                delay={index * 200}
+              />
             ))}
           </div>
         </div>
       </div>
     </section>
+  );
+};
+
+// Separate component for animated stat
+const StatItem = ({ number, label, isVisible, delay }) => {
+  const [startCount, setStartCount] = useState(false);
+  const animatedNumber = useCountUp(number, 2000, startCount);
+
+  useEffect(() => {
+    if (isVisible) {
+      const timer = setTimeout(() => setStartCount(true), delay);
+      return () => clearTimeout(timer);
+    }
+  }, [isVisible, delay]);
+
+  return (
+    <div className="text-center">
+      <div className="text-4xl md:text-5xl font-bold text-orange-500 mb-2">
+        {startCount ? animatedNumber : '0' + (number.includes('%') ? '%' : '+')}
+      </div>
+      <div className="text-gray-400 text-base md:text-lg">{label}</div>
+    </div>
   );
 };
 

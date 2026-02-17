@@ -15,19 +15,27 @@ import './App.css';
 function App() {
   return (
     <ThemeProvider>
-      <div className="App bg-slate-900 dark:bg-slate-900 light:bg-gray-50 transition-colors duration-300">
-        <Navbar />
-        <Hero />
-        <ClientsSection />
-        <Services />
-        <About />
-        <Portfolio />
-        <Testimonials />
-        <Contact />
-        <Footer />
-        <Toaster position="top-right" />
-      </div>
+      <AppContent />
     </ThemeProvider>
+  );
+}
+
+function AppContent() {
+  const { isDark } = require('./contexts/ThemeContext').useTheme();
+  
+  return (
+    <div className={`App ${isDark ? 'bg-slate-900' : 'bg-gray-50'} transition-colors duration-300`}>
+      <Navbar />
+      <Hero />
+      <ClientsSection />
+      <Services />
+      <About />
+      <Portfolio />
+      <Testimonials />
+      <Contact />
+      <Footer />
+      <Toaster position="top-right" />
+    </div>
   );
 }
 

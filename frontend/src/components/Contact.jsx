@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
@@ -6,7 +6,7 @@ import { Button } from './ui/button';
 import { Label } from './ui/label';
 import { Phone, Mail, MapPin, Send } from 'lucide-react';
 import { toast } from 'sonner';
-import { companyInfo, companyImages } from '../data/mock';
+import { companyInfo } from '../data/mock';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -16,16 +16,6 @@ const Contact = () => {
     subject: '',
     message: ''
   });
-
-  const [scrollY, setScrollY] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const handleChange = (e) => {
     setFormData({
@@ -54,23 +44,8 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="relative py-24 overflow-hidden">
-      {/* Parallax Background */}
-      <div 
-        className="absolute inset-0 z-0"
-        style={{
-          transform: `translateY(${scrollY * 0.2}px)`,
-        }}
-      >
-        <img
-          src={companyImages.worker}
-          alt="Contact Background"
-          className="w-full h-full object-cover opacity-15"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/92 via-slate-900/90 to-slate-900"></div>
-      </div>
-
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="py-24 bg-slate-900">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center px-4 py-2 bg-orange-600/20 border border-orange-500/30 rounded-full mb-4">
@@ -88,7 +63,7 @@ const Contact = () => {
           {/* Contact Info */}
           <div className="lg:col-span-1 space-y-6">
             {/* Address Card */}
-            <Card className="bg-slate-800 border-slate-700 hover:border-orange-500/50 transition-all duration-300">
+            <Card className="bg-slate-800/90 backdrop-blur-sm border-slate-700 hover:border-orange-500/50 transition-all duration-300">
               <CardContent className="p-6">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-orange-600/20 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -103,7 +78,7 @@ const Contact = () => {
             </Card>
 
             {/* Phone Card */}
-            <Card className="bg-slate-800 border-slate-700 hover:border-orange-500/50 transition-all duration-300">
+            <Card className="bg-slate-800/90 backdrop-blur-sm border-slate-700 hover:border-orange-500/50 transition-all duration-300">
               <CardContent className="p-6">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-orange-600/20 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -125,7 +100,7 @@ const Contact = () => {
             </Card>
 
             {/* Email Card */}
-            <Card className="bg-slate-800 border-slate-700 hover:border-orange-500/50 transition-all duration-300">
+            <Card className="bg-slate-800/90 backdrop-blur-sm border-slate-700 hover:border-orange-500/50 transition-all duration-300">
               <CardContent className="p-6">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-orange-600/20 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -162,7 +137,7 @@ const Contact = () => {
 
           {/* Contact Form */}
           <div className="lg:col-span-2">
-            <Card className="bg-slate-800 border-slate-700">
+            <Card className="bg-slate-800/90 backdrop-blur-sm border-slate-700">
               <CardHeader>
                 <CardTitle className="text-2xl text-white">Kirim Pesan</CardTitle>
               </CardHeader>

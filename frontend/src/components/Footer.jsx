@@ -42,25 +42,25 @@ const Footer = () => {
             <h3 className="text-2xl font-bold text-orange-500 mb-4">
               PT. HARKAT BANGKIT JAYA
             </h3>
-            <p className="text-gray-400 mb-6 leading-relaxed">
+            <p className={`${isDark ? 'text-gray-400' : 'text-slate-600'} mb-6 leading-relaxed`}>
               Solusi konstruksi profesional dengan standar kualitas terbaik untuk masa depan yang lebih baik.
             </p>
             <div className="flex gap-4">
               <a
                 href="#"
-                className={`w-10 h-10 ${isDark ? 'bg-slate-800' : 'bg-white'} hover:bg-orange-600 rounded-lg flex items-center justify-center transition-all duration-300`}
+                className={`w-10 h-10 ${isDark ? 'bg-slate-800 text-gray-300' : 'bg-white text-slate-700 shadow-md'} hover:bg-orange-600 hover:text-white rounded-lg flex items-center justify-center transition-all duration-300`}
               >
                 <Facebook size={20} />
               </a>
               <a
                 href="#"
-                className={`w-10 h-10 ${isDark ? 'bg-slate-800' : 'bg-white'} hover:bg-orange-600 rounded-lg flex items-center justify-center transition-all duration-300`}
+                className={`w-10 h-10 ${isDark ? 'bg-slate-800 text-gray-300' : 'bg-white text-slate-700 shadow-md'} hover:bg-orange-600 hover:text-white rounded-lg flex items-center justify-center transition-all duration-300`}
               >
                 <Instagram size={20} />
               </a>
               <a
                 href="#"
-                className={`w-10 h-10 ${isDark ? 'bg-slate-800' : 'bg-white'} hover:bg-orange-600 rounded-lg flex items-center justify-center transition-all duration-300`}
+                className={`w-10 h-10 ${isDark ? 'bg-slate-800 text-gray-300' : 'bg-white text-slate-700 shadow-md'} hover:bg-orange-600 hover:text-white rounded-lg flex items-center justify-center transition-all duration-300`}
               >
                 <Linkedin size={20} />
               </a>
@@ -75,7 +75,7 @@ const Footer = () => {
                 <li key={link.id}>
                   <button
                     onClick={() => scrollToSection(link.id)}
-                    className="text-gray-400 hover:text-orange-500 transition-colors duration-200"
+                    className={`${isDark ? 'text-gray-400' : 'text-slate-600'} hover:text-orange-500 transition-colors duration-200`}
                   >
                     {link.label}
                   </button>
@@ -86,13 +86,13 @@ const Footer = () => {
 
           {/* Services */}
           <div>
-            <h4 className="text-white font-bold text-lg mb-4">Layanan</h4>
+            <h4 className={`${isDark ? 'text-white' : 'text-slate-900'} font-bold text-lg mb-4`}>Layanan</h4>
             <ul className="space-y-3">
               {services.map((service, index) => (
                 <li key={index}>
                   <button
                     onClick={() => scrollToSection('services')}
-                    className="text-gray-400 hover:text-orange-500 transition-colors duration-200"
+                    className={`${isDark ? 'text-gray-400' : 'text-slate-600'} hover:text-orange-500 transition-colors duration-200`}
                   >
                     {service}
                   </button>
@@ -103,11 +103,11 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h4 className="text-white font-bold text-lg mb-4">Kontak</h4>
+            <h4 className={`${isDark ? 'text-white' : 'text-slate-900'} font-bold text-lg mb-4`}>Kontak</h4>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <MapPin className="text-orange-500 flex-shrink-0 mt-1" size={20} />
-                <span className="text-gray-400 leading-relaxed">{companyInfo.address}</span>
+                <span className={`${isDark ? 'text-gray-400' : 'text-slate-600'} leading-relaxed`}>{companyInfo.address}</span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="text-orange-500 flex-shrink-0" size={20} />
@@ -115,7 +115,7 @@ const Footer = () => {
                   href={companyInfo.whatsapp}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-orange-500 transition-colors"
+                  className={`${isDark ? 'text-gray-400' : 'text-slate-600'} hover:text-orange-500 transition-colors`}
                 >
                   {companyInfo.phone}
                 </a>
@@ -124,7 +124,7 @@ const Footer = () => {
                 <Mail className="text-orange-500 flex-shrink-0 mt-1" size={20} />
                 <a
                   href={`mailto:${companyInfo.email}`}
-                  className="text-gray-400 hover:text-orange-500 transition-colors break-all"
+                  className={`${isDark ? 'text-gray-400' : 'text-slate-600'} hover:text-orange-500 transition-colors break-all`}
                 >
                   {companyInfo.email}
                 </a>
@@ -135,14 +135,14 @@ const Footer = () => {
       </div>
 
       {/* Bottom Footer */}
-      <div className="border-t border-slate-800">
+      <div className={`border-t ${isDark ? 'border-slate-800' : 'border-gray-200'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-gray-400 text-sm">
+            <p className={`${isDark ? 'text-gray-400' : 'text-slate-500'} text-sm`}>
               © {currentYear} PT. Harkat Bangkit Jaya. All rights reserved.
             </p>
             <div className="flex gap-6 text-sm">
-              <button className="text-gray-400 hover:text-orange-500 transition-colors">
+              <button className={`${isDark ? 'text-gray-400' : 'text-slate-500'} hover:text-orange-500 transition-colors`}>
                 Created by <a href="https://devaq.maulanamalik.my.id/">Devaq Webdevloper</a>
               </button>
             </div>

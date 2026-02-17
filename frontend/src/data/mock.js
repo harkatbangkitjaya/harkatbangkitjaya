@@ -131,42 +131,42 @@ export const projects = [
     id: 1,
     title: "Perawatan Gedung Perkantoran",
     category: "Building Maintenance",
-    image: "https://images.unsplash.com/photo-1759250451406-d01cfb0655da",
+    image: "https://nemuftsdmjzkzcygkjpg.supabase.co/storage/v1/object/public/assets-devaq/pt-harkat-bangkit-jaya/perawatan-gedung-perkantoran.webp",
     description: "Perawatan fasad dan maintenance gedung perkantoran modern"
   },
   {
     id: 2,
     title: "Konstruksi Bangunan Komersial",
     category: "Construction",
-    image: "https://images.unsplash.com/photo-1759170154403-da5c94821be6",
+    image: "https://nemuftsdmjzkzcygkjpg.supabase.co/storage/v1/object/public/assets-devaq/pt-harkat-bangkit-jaya/kontruksi-bangunan-komersial.webp",
     description: "Pembangunan gedung komersial dengan standar internasional"
   },
   {
     id: 3,
     title: "Desain Interior Modern",
     category: "Interior Design",
-    image: "https://images.unsplash.com/photo-1642954268014-c51611ea3639",
+    image: "https://nemuftsdmjzkzcygkjpg.supabase.co/storage/v1/object/public/assets-devaq/pt-harkat-bangkit-jaya/desain-interior-modern.webp",
     description: "Desain interior ruang kantor yang modern dan fungsional"
   },
   {
     id: 4,
     title: "Instalasi MEP",
     category: "MEP",
-    image: "https://images.unsplash.com/photo-1760726331933-289fd55476cb",
+    image: "https://nemuftsdmjzkzcygkjpg.supabase.co/storage/v1/object/public/assets-devaq/pt-harkat-bangkit-jaya/instalasi-mep.webp",
     description: "Instalasi sistem mekanikal, elektrikal, dan plumbing"
   },
   {
     id: 5,
     title: "Pembersihan Fasad",
     category: "Facade Cleaning",
-    image: "https://images.unsplash.com/photo-1758836113725-a1b082c622bd",
+    image: "https://nemuftsdmjzkzcygkjpg.supabase.co/storage/v1/object/public/assets-devaq/pt-harkat-bangkit-jaya/pembersihan-fasad.webp",
     description: "Layanan pembersihan fasad gedung tinggi dengan teknik rope access"
   },
   {
     id: 6,
     title: "Arsitektur Bangunan",
     category: "Architecture",
-    image: "https://images.unsplash.com/photo-1730166890479-25abed996fc8",
+    image: "https://nemuftsdmjzkzcygkjpg.supabase.co/storage/v1/object/public/assets-devaq/pt-harkat-bangkit-jaya/arsitektur-bangunan.webp",
     description: "Desain arsitektur bangunan dengan konsep modern minimalis"
   }
 ];

@@ -141,10 +141,7 @@ const Footer = () => {
             </p>
             <div className="flex gap-6 text-sm">
               <button className="text-gray-400 hover:text-orange-500 transition-colors">
-                Kebijakan Privasi
-              </button>
-              <button className="text-gray-400 hover:text-orange-500 transition-colors">
-                Syarat & Ketentuan
+                Created by <a href="https://devaq.maulanamalik.my.id/">Devaq Webdevloper</a>
               </button>
             </div>
           </div>

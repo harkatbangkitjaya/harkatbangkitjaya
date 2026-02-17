@@ -34,9 +34,8 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-slate-900/98 backdrop-blur-lg shadow-2xl' : 'bg-slate-900/90 backdrop-blur-md shadow-lg'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-slate-900/98 backdrop-blur-lg shadow-2xl' : 'bg-slate-900/90 backdrop-blur-md shadow-lg'
+        }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
@@ -48,12 +47,12 @@ const Navbar = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center gap-6">
             {navLinks.map((link) => (
               <button
                 key={link.id}
                 onClick={() => scrollToSection(link.id)}
-                className="text-gray-200 hover:text-orange-500 transition-colors duration-200 font-medium"
+                className="text-gray-200 hover:text-orange-500 transition-colors duration-200 font-medium px-2"
               >
                 {link.label}
               </button>

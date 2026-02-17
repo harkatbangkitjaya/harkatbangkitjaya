@@ -30,22 +30,25 @@ Buatkan landing page yang modern dan minimalist serta eye catching sesuai compan
 
 ## What's Been Implemented (Desember 17, 2025)
 
-### Frontend (Mock Data - Phase 1)
+### Frontend (Mock Data - Phase 1) ✅ UPDATED
 ✅ **Komponen yang Dibuat:**
-- `/app/frontend/src/data/mock.js` - Mock data untuk seluruh landing page
-- `/app/frontend/src/components/Navbar.jsx` - Navigation bar responsive dengan smooth scroll
+- `/app/frontend/src/data/mock.js` - Mock data untuk seluruh landing page + company images
+- `/app/frontend/src/components/Navbar.jsx` - Navigation bar responsive dengan smooth scroll (FIXED - solid navbar)
 - `/app/frontend/src/components/Hero.jsx` - Hero section dengan CTA buttons
-- `/app/frontend/src/components/Services.jsx` - 8 service cards dengan icons
-- `/app/frontend/src/components/About.jsx` - About section dengan visi, misi, dan nilai perusahaan
-- `/app/frontend/src/components/Portfolio.jsx` - Portfolio dengan category filter
-- `/app/frontend/src/components/Testimonials.jsx` - 4 testimonial cards
-- `/app/frontend/src/components/Contact.jsx` - Contact form dan info cards
+- `/app/frontend/src/components/Services.jsx` - 8 service cards dengan parallax background (worker image)
+- `/app/frontend/src/components/About.jsx` - About section dengan visi, misi, nilai + parallax background
+- `/app/frontend/src/components/Portfolio.jsx` - Portfolio dengan category filter + parallax background (worker image)
+- `/app/frontend/src/components/Testimonials.jsx` - 4 testimonial cards + parallax background
+- `/app/frontend/src/components/Contact.jsx` - Contact form dan info cards + parallax background (worker image)
 - `/app/frontend/src/components/Footer.jsx` - Footer dengan quick links dan social media
 - `/app/frontend/src/App.js` - Main app component
 - `/app/frontend/src/App.css` - Custom styling dan animations
 
 ✅ **Design Features:**
 - Modern minimalist design dengan warna konstruksi (orange #ea580c, slate dark)
+- **NEW: Parallax scroll effect pada semua section backgrounds**
+- **NEW: Company worker images digunakan sebagai background dengan parallax**
+- **NEW: Fixed/solid navbar yang lebih prominent**
 - Fully responsive untuk mobile, tablet, dan desktop
 - Smooth scroll navigation
 - Hover effects dan transitions
@@ -59,6 +62,7 @@ Buatkan landing page yang modern dan minimalist serta eye catching sesuai compan
 - Email link yang berfungsi
 - Contact form dengan toast notification (mock submission)
 - Portfolio category filter yang berfungsi
+- **NEW: Parallax effect yang smooth saat scroll**
 - Semua interaksi frontend berfungsi dengan baik
 
 ## Tech Stack

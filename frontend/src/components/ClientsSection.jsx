@@ -1,6 +1,9 @@
 import React from 'react';
+import { useTheme } from '../contexts/ThemeContext';
 
 const ClientsSection = () => {
+  const { isDark } = useTheme();
+  
   // Client logos - PT Harkat Bangkit Jaya actual clients
   const clients = [
     { 
@@ -44,19 +47,19 @@ const ClientsSection = () => {
   const allClients = [...clients, ...clients];
 
   return (
-    <section className="relative py-16 bg-slate-800 overflow-hidden" data-testid="clients-section">
+    <section className={`relative py-16 ${isDark ? 'bg-slate-800' : 'bg-gray-100'} overflow-hidden`} data-testid="clients-section">
       {/* 3D Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-10 left-10 w-64 h-64 bg-orange-600/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-10 right-10 w-80 h-80 bg-orange-500/5 rounded-full blur-3xl"></div>
+        <div className={`absolute top-10 left-10 w-64 h-64 ${isDark ? 'bg-orange-600/5' : 'bg-orange-600/10'} rounded-full blur-3xl`}></div>
+        <div className={`absolute bottom-10 right-10 w-80 h-80 ${isDark ? 'bg-orange-500/5' : 'bg-orange-500/10'} rounded-full blur-3xl`}></div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
         <div className="text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
+          <h2 className={`text-3xl md:text-4xl font-bold ${isDark ? 'text-white' : 'text-slate-900'} mb-2`}>
             Klien <span className="text-orange-500">Kami</span>
           </h2>
-          <p className="text-gray-400 text-lg">
+          <p className={`${isDark ? 'text-gray-400' : 'text-slate-600'} text-lg`}>
             Dipercaya oleh perusahaan terkemuka di Indonesia
           </p>
         </div>
@@ -65,8 +68,8 @@ const ClientsSection = () => {
       {/* Animated Logo Slider - pause on hover */}
       <div className="relative group/slider">
         {/* Gradient overlays for fade effect */}
-        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-slate-800 to-transparent z-10"></div>
-        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-slate-800 to-transparent z-10"></div>
+        <div className={`absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r ${isDark ? 'from-slate-800' : 'from-gray-100'} to-transparent z-10`}></div>
+        <div className={`absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l ${isDark ? 'from-slate-800' : 'from-gray-100'} to-transparent z-10`}></div>
 
         {/* Scrolling container - pauses when any logo is hovered */}
         <div className="flex items-center animate-scroll-infinite group-hover/slider:[animation-play-state:paused]">
@@ -76,11 +79,11 @@ const ClientsSection = () => {
               className="flex-shrink-0 mx-8"
               data-testid={`client-logo-${client.id}`}
             >
-              <div className="group/logo cursor-pointer transition-all duration-300 hover:scale-110 p-4 bg-white/5 rounded-xl hover:bg-white/10">
+              <div className={`group/logo cursor-pointer transition-all duration-300 hover:scale-110 p-4 ${isDark ? 'bg-white/5 hover:bg-white/10' : 'bg-white hover:bg-white shadow-md hover:shadow-lg'} rounded-xl`}>
                 <img 
                   src={client.logo} 
                   alt={client.name}
-                  className="h-16 md:h-20 lg:h-24 w-auto min-w-[120px] max-w-[200px] object-contain grayscale brightness-200 opacity-80 group-hover/logo:grayscale-0 group-hover/logo:brightness-100 group-hover/logo:opacity-100 transition-all duration-300"
+                  className={`h-16 md:h-20 lg:h-24 w-auto min-w-[120px] max-w-[200px] object-contain ${isDark ? 'grayscale brightness-200 opacity-80 group-hover/logo:grayscale-0 group-hover/logo:brightness-100 group-hover/logo:opacity-100' : 'grayscale opacity-70 group-hover/logo:grayscale-0 group-hover/logo:opacity-100'} transition-all duration-300`}
                   loading="lazy"
                 />
               </div>

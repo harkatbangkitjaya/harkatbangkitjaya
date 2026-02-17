@@ -1,36 +1,24 @@
 import React from 'react';
+import { Building2, Hotel, ShoppingBag, Home, Landmark, Hospital, Building, Store } from 'lucide-react';
 
 const ClientsSection = () => {
-  // Client dengan SVG placeholders untuk logo
+  // Client logos with icons
   const clients = [
-    { id: 1, name: 'PT. Maju Bersama', color: '#0066CC' },
-    { id: 2, name: 'Grand Mall', color: '#E31837' },
-    { id: 3, name: 'Hotel Tasik Indah', color: '#6A1B9A' },
-    { id: 4, name: 'Tasik Property', color: '#00897B' },
-    { id: 5, name: 'Bank Mandiri', color: '#003D7A' },
-    { id: 6, name: 'RS Umum', color: '#D32F2F' },
-    { id: 7, name: 'Pemkot Tasikmalaya', color: '#F57C00' },
-    { id: 8, name: 'Plaza Tasikmalaya', color: '#7B1FA2' }
+    { id: 1, name: 'PT. Maju Bersama', icon: Building2, color: '#0066CC' },
+    { id: 2, name: 'Grand Mall', icon: ShoppingBag, color: '#E31837' },
+    { id: 3, name: 'Hotel Tasik Indah', icon: Hotel, color: '#6A1B9A' },
+    { id: 4, name: 'Tasik Property', icon: Home, color: '#00897B' },
+    { id: 5, name: 'Bank Mandiri', icon: Landmark, color: '#003D7A' },
+    { id: 6, name: 'RS Umum', icon: Hospital, color: '#D32F2F' },
+    { id: 7, name: 'Pemkot Tasikmalaya', icon: Building, color: '#F57C00' },
+    { id: 8, name: 'Plaza Tasikmalaya', icon: Store, color: '#7B1FA2' }
   ];
 
   // Duplicate clients for seamless loop
   const allClients = [...clients, ...clients];
 
-  // Generate simple logo SVG
-  const generateLogo = (name, color) => {
-    const initials = name.split(' ').map(word => word[0]).join('').substring(0, 2);
-    return (
-      <svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
-        <rect width="80" height="80" rx="8" fill={color} className="logo-bg transition-all duration-300"/>
-        <text x="50%" y="50%" textAnchor="middle" dy=".3em" fill="white" fontSize="24" fontWeight="bold" className="logo-text">
-          {initials}
-        </text>
-      </svg>
-    );
-  };
-
   return (
-    <section className="relative py-16 bg-slate-800 overflow-hidden">
+    <section className="relative py-16 bg-slate-800 overflow-hidden" data-testid="clients-section">
       {/* 3D Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-10 left-10 w-64 h-64 bg-orange-600/5 rounded-full blur-3xl"></div>
@@ -56,26 +44,34 @@ const ClientsSection = () => {
 
         {/* Scrolling container */}
         <div className="flex animate-scroll-infinite">
-          {allClients.map((client, index) => (
-            <div
-              key={`${client.id}-${index}`}
-              className="flex-shrink-0 mx-6"
-            >
-              <div className="w-44 h-32 bg-white/5 backdrop-blur-sm rounded-xl border border-slate-700 hover:border-orange-500 transition-all duration-300 flex items-center justify-center p-6 group hover:scale-110 hover:bg-white/10 logo-container">
-                <div className="grayscale-[100%] group-hover:grayscale-0 transition-all duration-300 opacity-60 group-hover:opacity-100">
-                  {generateLogo(client.name, client.color)}
+          {allClients.map((client, index) => {
+            const IconComponent = client.icon;
+            return (
+              <div
+                key={`${client.id}-${index}`}
+                className="flex-shrink-0 mx-6"
+                data-testid={`client-logo-${client.id}`}
+              >
+                <div className="w-48 h-36 bg-white/5 backdrop-blur-sm rounded-xl border border-slate-700 hover:border-orange-500 transition-all duration-300 flex flex-col items-center justify-center p-4 group hover:scale-110 hover:bg-white/10">
+                  <div 
+                    className="w-16 h-16 rounded-full flex items-center justify-center mb-3 transition-all duration-300 grayscale group-hover:grayscale-0"
+                    style={{ backgroundColor: `${client.color}20` }}
+                  >
+                    <IconComponent 
+                      size={32} 
+                      style={{ color: client.color }}
+                      className="transition-all duration-300 opacity-70 group-hover:opacity-100"
+                    />
+                  </div>
+                  <span className="text-sm font-medium text-gray-400 group-hover:text-white transition-colors duration-300 text-center leading-tight">
+                    {client.name}
+                  </span>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
-
-      <style jsx>{`
-        .logo-container:hover .logo-bg {
-          filter: brightness(1.1);
-        }
-      `}</style>
     </section>
   );
 };

@@ -1,9 +1,11 @@
 import React from 'react';
 import { Mail, Phone, MapPin, Facebook, Instagram, Linkedin } from 'lucide-react';
 import { companyInfo } from '../data/mock';
+import { useTheme } from '../contexts/ThemeContext';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const { isDark } = useTheme();
 
   const quickLinks = [
     { label: 'Beranda', id: 'hero' },
@@ -31,7 +33,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-slate-950 text-gray-300">
+    <footer className={isDark ? 'bg-slate-950 text-gray-300' : 'bg-gray-100 text-slate-700'}>
       {/* Main Footer */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
@@ -46,19 +48,19 @@ const Footer = () => {
             <div className="flex gap-4">
               <a
                 href="#"
-                className="w-10 h-10 bg-slate-800 hover:bg-orange-600 rounded-lg flex items-center justify-center transition-all duration-300"
+                className={`w-10 h-10 ${isDark ? 'bg-slate-800' : 'bg-white'} hover:bg-orange-600 rounded-lg flex items-center justify-center transition-all duration-300`}
               >
                 <Facebook size={20} />
               </a>
               <a
                 href="#"
-                className="w-10 h-10 bg-slate-800 hover:bg-orange-600 rounded-lg flex items-center justify-center transition-all duration-300"
+                className={`w-10 h-10 ${isDark ? 'bg-slate-800' : 'bg-white'} hover:bg-orange-600 rounded-lg flex items-center justify-center transition-all duration-300`}
               >
                 <Instagram size={20} />
               </a>
               <a
                 href="#"
-                className="w-10 h-10 bg-slate-800 hover:bg-orange-600 rounded-lg flex items-center justify-center transition-all duration-300"
+                className={`w-10 h-10 ${isDark ? 'bg-slate-800' : 'bg-white'} hover:bg-orange-600 rounded-lg flex items-center justify-center transition-all duration-300`}
               >
                 <Linkedin size={20} />
               </a>
@@ -67,7 +69,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-white font-bold text-lg mb-4">Menu Cepat</h4>
+            <h4 className={`${isDark ? 'text-white' : 'text-slate-900'} font-bold text-lg mb-4`}>Menu Cepat</h4>
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.id}>

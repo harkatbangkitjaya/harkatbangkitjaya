@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
 import { Building2, PenTool, Wrench, Package, Users, Cable, Hammer, Box } from 'lucide-react';
 import { services, marketingCopy } from '../data/mock';
+import { useTheme } from '../contexts/ThemeContext';
 
 const iconMap = {
   Building2,
@@ -16,6 +17,7 @@ const iconMap = {
 
 const Services = () => {
   const [offsetY, setOffsetY] = useState(0);
+  const { isDark } = useTheme();
 
   useEffect(() => {
     let ticking = false;
@@ -28,15 +30,15 @@ const Services = () => {
         ticking = true;
       }
     };
-    
+
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
-    <section id="services" className="relative py-24 bg-slate-900 overflow-hidden">
+    <section id="services" className={`relative py-24 ${isDark ? 'bg-slate-900' : 'bg-white'} overflow-hidden`}>
       {/* Parallax Background Layer */}
-      <div 
+      <div
         className="absolute inset-0 z-0"
         style={{
           transform: `translateY(${offsetY * 0.2}px)`,
@@ -66,13 +68,13 @@ const Services = () => {
           <div className="inline-flex items-center px-4 py-2 bg-orange-600/20 border border-orange-500/30 rounded-full mb-4">
             <span className="text-orange-400 font-semibold text-sm">{marketingCopy.services.tagline}</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className={`text-4xl md:text-5xl font-bold ${isDark ? 'text-white' : 'text-slate-900'} mb-4`}>
             {marketingCopy.services.title}
           </h2>
           <p className="text-2xl text-orange-500 font-semibold mb-4">
             {marketingCopy.services.subtitle}
           </p>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+          <p className={`text-xl ${isDark ? 'text-gray-400' : 'text-slate-600'} max-w-3xl mx-auto`}>
             Kami menyediakan berbagai layanan berkualitas tinggi dengan tenaga ahli profesional dan berpengalaman untuk memastikan setiap proyek selesai dengan sempurna.
           </p>
         </div>
@@ -84,18 +86,18 @@ const Services = () => {
             return (
               <Card
                 key={service.id}
-                className="bg-slate-800/90 backdrop-blur-sm border-slate-700 hover:border-orange-500/50 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-orange-500/10 group"
+                className={`${isDark ? 'bg-slate-800/90 border-slate-700' : 'bg-white border-gray-200'} backdrop-blur-sm hover:border-orange-500/50 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-orange-500/10 group`}
               >
                 <CardHeader>
                   <div className="w-14 h-14 bg-orange-600/20 rounded-lg flex items-center justify-center mb-4 group-hover:bg-orange-600 transition-all duration-300">
                     <IconComponent className="text-orange-500 group-hover:text-white transition-colors" size={28} />
                   </div>
-                  <CardTitle className="text-white text-xl group-hover:text-orange-500 transition-colors">
+                  <CardTitle className={`${isDark ? 'text-white' : 'text-slate-900'} text-xl group-hover:text-orange-500 transition-colors`}>
                     {service.title}
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription className="text-gray-400 leading-relaxed">
+                  <CardDescription className={`${isDark ? 'text-gray-400' : 'text-slate-600'} leading-relaxed`}>
                     {service.description}
                   </CardDescription>
                 </CardContent>

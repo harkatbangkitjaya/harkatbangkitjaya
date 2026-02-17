@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Card, CardContent } from './ui/card';
 import { Shield, Users, Heart, BookOpen, CheckCircle } from 'lucide-react';
 import { visionMission, values, companyInfo, marketingCopy } from '../data/mock';
+import { useTheme } from '../contexts/ThemeContext';
 
 const iconMap = {
   Users,
@@ -12,6 +13,7 @@ const iconMap = {
 
 const About = () => {
   const [offsetY, setOffsetY] = useState(0);
+  const { isDark } = useTheme();
 
   useEffect(() => {
     let ticking = false;
@@ -24,15 +26,15 @@ const About = () => {
         ticking = true;
       }
     };
-    
+
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
-    <section id="about" className="relative py-24 bg-slate-800 overflow-hidden">
+    <section id="about" className={`relative py-24 ${isDark ? 'bg-slate-800' : 'bg-gray-50'} overflow-hidden`}>
       {/* Parallax Background Layer */}
-      <div 
+      <div
         className="absolute inset-0 z-0"
         style={{
           transform: `translateY(${offsetY * 0.15}px)`,
@@ -62,7 +64,7 @@ const About = () => {
           <div className="inline-flex items-center px-4 py-2 bg-orange-600/20 border border-orange-500/30 rounded-full mb-4">
             <span className="text-orange-400 font-semibold text-sm">{marketingCopy.about.tagline}</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className={`text-4xl md:text-5xl font-bold ${isDark ? 'text-white' : 'text-slate-900'} mb-4`}>
             {marketingCopy.about.title}
           </h2>
           <p className="text-2xl text-orange-500 font-semibold mb-4">
@@ -72,12 +74,12 @@ const About = () => {
 
         {/* Company Description - Full Width, No Circular Image */}
         <div className="mb-16 max-w-4xl mx-auto">
-          <Card className="bg-slate-900/90 backdrop-blur-sm border-slate-700">
+          <Card className={`${isDark ? 'bg-slate-900/90 border-slate-700' : 'bg-white border-gray-200'} backdrop-blur-sm`}>
             <CardContent className="p-8 md:p-12">
-              <p className="text-gray-300 text-lg leading-relaxed mb-6">
+              <p className={`${isDark ? 'text-gray-300' : 'text-slate-700'} text-lg leading-relaxed mb-6`}>
                 {companyInfo.description}
               </p>
-              <p className="text-gray-300 text-lg leading-relaxed">
+              <p className={`${isDark ? 'text-gray-300' : 'text-slate-700'} text-lg leading-relaxed`}>
                 Kami berkomitmen untuk menyediakan kontrol kualitas proyek kelas satu dan layanan teknis premium di bidang rekayasa proyek, pengadaan, fabrikasi, dan khususnya layanan pemeliharaan bangunan.
               </p>
             </CardContent>

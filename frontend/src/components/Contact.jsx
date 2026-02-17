@@ -7,8 +7,10 @@ import { Label } from './ui/label';
 import { Phone, Mail, MapPin, Send } from 'lucide-react';
 import { toast } from 'sonner';
 import { companyInfo } from '../data/mock';
+import { useTheme } from '../contexts/ThemeContext';
 
 const Contact = () => {
+  const { isDark } = useTheme();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -24,40 +26,74 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    // Mock submission
-    console.log('Form submitted:', formData);
-    
-    // Show success message
-    toast.success('Pesan berhasil dikirim! Tim kami akan segera menghubungi Anda.');
-    
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      subject: '',
-      message: ''
-    });
+
+    // Show loading toast
+    const loadingToast = toast.loading('Mengirim pesan...');
+
+    try {
+      // Web3Forms API endpoint
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: process.env.REACT_APP_WEB3FORMS_ACCESS_KEY,
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          subject: formData.subject,
+          message: formData.message,
+          from_name: 'PT. Harkat Bangkit Jaya - Website Contact Form',
+          replyto: formData.email, // Reply to customer email
+          cc: formData.email, // CC to customer for confirmation
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        // Show success message
+        toast.success('Pesan berhasil dikirim! Tim kami akan segera menghubungi Anda.', {
+          id: loadingToast,
+        });
+
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          subject: '',
+          message: ''
+        });
+      } else {
+        throw new Error(result.message || 'Gagal mengirim pesan');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      toast.error('Gagal mengirim pesan. Silakan coba lagi atau hubungi kami via WhatsApp.', {
+        id: loadingToast,
+      });
+    }
   };
 
   return (
-    <section id="contact" className="relative py-24 bg-slate-900 overflow-hidden">
+    <section id="contact" className={`relative py-24 ${isDark ? 'bg-slate-900' : 'bg-white'} overflow-hidden`}>
       {/* 3D Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Geometric shapes for 3D depth */}
         <div className="absolute top-20 right-1/4 w-72 h-72 bg-orange-600/5 rounded-full blur-3xl"></div>
         <div className="absolute bottom-20 left-1/4 w-80 h-80 bg-orange-500/5 rounded-full blur-3xl"></div>
         <div className="absolute top-1/2 left-10 w-64 h-64 bg-orange-700/5 rounded-full blur-3xl"></div>
-        
+
         {/* Hexagon pattern for depth */}
         <div className="absolute inset-0 opacity-[0.015]">
           <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <pattern id="hexagons" patternUnits="userSpaceOnUse" width="100" height="100">
-                <path d="M25,0 L75,0 L100,43.3 L75,86.6 L25,86.6 L0,43.3 Z" fill="none" stroke="#ea580c" strokeWidth="1"/>
+                <path d="M25,0 L75,0 L100,43.3 L75,86.6 L25,86.6 L0,43.3 Z" fill="none" stroke="#ea580c" strokeWidth="1" />
               </pattern>
             </defs>
             <rect width="100%" height="100%" fill="url(#hexagons)" />
@@ -106,7 +142,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="text-white font-bold mb-2">Telepon / WhatsApp</h3>
-                    <a 
+                    <a
                       href={companyInfo.whatsapp}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -128,7 +164,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="text-white font-bold mb-2">Email</h3>
-                    <a 
+                    <a
                       href={`mailto:${companyInfo.email}`}
                       className="text-gray-400 hover:text-orange-500 transition-colors break-all"
                     >

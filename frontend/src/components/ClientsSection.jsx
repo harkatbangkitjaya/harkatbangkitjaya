@@ -69,18 +69,18 @@ const ClientsSection = () => {
         <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-slate-800 to-transparent z-10"></div>
 
         {/* Scrolling container - pauses when any logo is hovered */}
-        <div className="flex animate-scroll-infinite group-hover/slider:[animation-play-state:paused]">
+        <div className="flex items-center animate-scroll-infinite group-hover/slider:[animation-play-state:paused]">
           {allClients.map((client, index) => (
             <div
               key={`${client.id}-${index}`}
-              className="flex-shrink-0 mx-10"
+              className="flex-shrink-0 mx-8"
               data-testid={`client-logo-${client.id}`}
             >
-              <div className="group/logo cursor-pointer transition-all duration-300 hover:scale-110 p-4">
+              <div className="group/logo cursor-pointer transition-all duration-300 hover:scale-110 p-4 bg-white/5 rounded-xl hover:bg-white/10">
                 <img 
                   src={client.logo} 
                   alt={client.name}
-                  className="h-20 md:h-24 w-auto object-contain grayscale opacity-70 group-hover/logo:grayscale-0 group-hover/logo:opacity-100 transition-all duration-300"
+                  className="h-16 md:h-20 lg:h-24 w-auto min-w-[120px] max-w-[200px] object-contain grayscale brightness-200 opacity-80 group-hover/logo:grayscale-0 group-hover/logo:brightness-100 group-hover/logo:opacity-100 transition-all duration-300"
                   loading="lazy"
                 />
               </div>

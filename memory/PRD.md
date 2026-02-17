@@ -19,10 +19,11 @@ Buatkan landing page yang modern dan minimalist serta eye catching sesuai compan
 - Scale animation on hover working
 
 ### ✅ ENHANCEMENT - Brand Logo Images (17 Feb 2026)
-- Replaced icon-based logos with actual brand logo images
-- Using Simple Icons CDN for clean SVG logos
-- Logos: Nike, Adidas, Google, AWS, Google Cloud, Microsoft, Apple, Samsung
-- Easy to replace with actual client logos later
+- Replaced icon-based logos with actual client logo images from Supabase
+- 7 real client logos: ironbird, PROCUBING, MEIKARTA, FirstEnergy, ARMANITA, etc.
+- Grayscale mode with brightness boost for visibility
+- Animation pauses on hover, logo becomes full color
+- Card background with semi-transparent styling
 
 ### ✅ ENHANCEMENT - Counter Animation (17 Feb 2026)  
 - Added counting animation for statistics (100+, 50+, 100%)
@@ -140,5 +141,5 @@ Buatkan landing page yang modern dan minimalist serta eye catching sesuai compan
 - Form submission menampilkan toast notification tapi belum tersimpan ke database
 - Semua CTA buttons (WhatsApp, Email) sudah terintegrasi dengan benar
 - Design mengikuti construction theme dengan warna profesional
-- Client logos menggunakan Simple Icons CDN (Nike, Adidas, Google, AWS, Microsoft, Apple, Samsung, Google Cloud)
+- Client logos menggunakan gambar asli dari Supabase storage (7 logo klien)
 - Counter animation menggunakan Intersection Observer + requestAnimationFrame

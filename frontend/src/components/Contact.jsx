@@ -65,9 +65,9 @@ const Contact = () => {
         <img
           src={companyImages.worker}
           alt="Contact Background"
-          className="w-full h-full object-cover opacity-8"
+          className="w-full h-full object-cover opacity-15"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-900 via-slate-900/97 to-slate-900"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/92 via-slate-900/90 to-slate-900"></div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

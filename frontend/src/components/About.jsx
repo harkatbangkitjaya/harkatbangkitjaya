@@ -33,9 +33,9 @@ const About = () => {
         <img
           src="https://images.unsplash.com/photo-1748956628042-b73331e0b479"
           alt="Construction Background"
-          className="w-full h-full object-cover opacity-5"
+          className="w-full h-full object-cover opacity-15"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-800 via-slate-800/98 to-slate-800"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-800/90 via-slate-800/90 to-slate-800"></div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

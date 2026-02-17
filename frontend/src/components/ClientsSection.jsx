@@ -1,17 +1,48 @@
 import React from 'react';
-import { Building2, Hotel, ShoppingBag, Home, Landmark, Hospital, Building, Store } from 'lucide-react';
 
 const ClientsSection = () => {
-  // Client logos with icons
+  // Client logos with actual brand images (placeholder - easily replaceable)
   const clients = [
-    { id: 1, name: 'PT. Maju Bersama', icon: Building2, color: '#0066CC' },
-    { id: 2, name: 'Grand Mall', icon: ShoppingBag, color: '#E31837' },
-    { id: 3, name: 'Hotel Tasik Indah', icon: Hotel, color: '#6A1B9A' },
-    { id: 4, name: 'Tasik Property', icon: Home, color: '#00897B' },
-    { id: 5, name: 'Bank Mandiri', icon: Landmark, color: '#003D7A' },
-    { id: 6, name: 'RS Umum', icon: Hospital, color: '#D32F2F' },
-    { id: 7, name: 'Pemkot Tasikmalaya', icon: Building, color: '#F57C00' },
-    { id: 8, name: 'Plaza Tasikmalaya', icon: Store, color: '#7B1FA2' }
+    { 
+      id: 1, 
+      name: 'Nike', 
+      logo: 'https://cdn.simpleicons.org/nike/ffffff'
+    },
+    { 
+      id: 2, 
+      name: 'Adidas', 
+      logo: 'https://cdn.simpleicons.org/adidas/ffffff'
+    },
+    { 
+      id: 3, 
+      name: 'Google', 
+      logo: 'https://cdn.simpleicons.org/google/ffffff'
+    },
+    { 
+      id: 4, 
+      name: 'Amazon Web Services', 
+      logo: 'https://cdn.simpleicons.org/amazonaws/ffffff'
+    },
+    { 
+      id: 5, 
+      name: 'Google Cloud', 
+      logo: 'https://cdn.simpleicons.org/googlecloud/ffffff'
+    },
+    { 
+      id: 6, 
+      name: 'Microsoft', 
+      logo: 'https://cdn.simpleicons.org/microsoft/ffffff'
+    },
+    { 
+      id: 7, 
+      name: 'Apple', 
+      logo: 'https://cdn.simpleicons.org/apple/ffffff'
+    },
+    { 
+      id: 8, 
+      name: 'Samsung', 
+      logo: 'https://cdn.simpleicons.org/samsung/ffffff'
+    }
   ];
 
   // Duplicate clients for seamless loop
@@ -44,32 +75,22 @@ const ClientsSection = () => {
 
         {/* Scrolling container */}
         <div className="flex animate-scroll-infinite">
-          {allClients.map((client, index) => {
-            const IconComponent = client.icon;
-            return (
-              <div
-                key={`${client.id}-${index}`}
-                className="flex-shrink-0 mx-6"
-                data-testid={`client-logo-${client.id}`}
-              >
-                <div className="w-48 h-36 bg-white/5 backdrop-blur-sm rounded-xl border border-slate-700 hover:border-orange-500 transition-all duration-300 flex flex-col items-center justify-center p-4 group hover:scale-110 hover:bg-white/10">
-                  <div 
-                    className="w-16 h-16 rounded-full flex items-center justify-center mb-3 transition-all duration-300 grayscale group-hover:grayscale-0"
-                    style={{ backgroundColor: `${client.color}20` }}
-                  >
-                    <IconComponent 
-                      size={32} 
-                      style={{ color: client.color }}
-                      className="transition-all duration-300 opacity-70 group-hover:opacity-100"
-                    />
-                  </div>
-                  <span className="text-sm font-medium text-gray-400 group-hover:text-white transition-colors duration-300 text-center leading-tight">
-                    {client.name}
-                  </span>
-                </div>
+          {allClients.map((client, index) => (
+            <div
+              key={`${client.id}-${index}`}
+              className="flex-shrink-0 mx-8"
+              data-testid={`client-logo-${client.id}`}
+            >
+              <div className="group cursor-pointer transition-all duration-300 hover:scale-110">
+                <img 
+                  src={client.logo} 
+                  alt={client.name}
+                  className="h-12 w-auto object-contain opacity-50 grayscale group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-300"
+                  loading="lazy"
+                />
               </div>
-            );
-          })}
+            </div>
+          ))}
         </div>
       </div>
     </section>

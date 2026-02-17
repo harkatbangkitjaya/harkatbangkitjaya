@@ -148,3 +148,7 @@ chainlit.md
 agenthub/agents/youtube/db
 test_reports/
 memory/
+-e 
+# Environment files
+*.env
+*.env.*

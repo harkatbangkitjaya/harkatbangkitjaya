@@ -3,21 +3,39 @@ html {
     scroll-behavior: smooth;
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
+/* Custom scrollbar - Dark mode */
+.dark ::-webkit-scrollbar {
     width: 10px;
 }
 
-::-webkit-scrollbar-track {
+.dark ::-webkit-scrollbar-track {
     background: #0f172a;
 }
 
-::-webkit-scrollbar-thumb {
+.dark ::-webkit-scrollbar-thumb {
     background: #ea580c;
     border-radius: 5px;
 }
 
-::-webkit-scrollbar-thumb:hover {
+.dark ::-webkit-scrollbar-thumb:hover {
+    background: #c2410c;
+}
+
+/* Custom scrollbar - Light mode */
+.light ::-webkit-scrollbar {
+    width: 10px;
+}
+
+.light ::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+.light ::-webkit-scrollbar-thumb {
+    background: #ea580c;
+    border-radius: 5px;
+}
+
+.light ::-webkit-scrollbar-thumb:hover {
     background: #c2410c;
 }
 

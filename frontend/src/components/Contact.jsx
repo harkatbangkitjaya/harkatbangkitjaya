@@ -84,12 +84,12 @@ const Contact = () => {
       {/* 3D Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Geometric shapes for 3D depth */}
-        <div className="absolute top-20 right-1/4 w-72 h-72 bg-orange-600/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 left-1/4 w-80 h-80 bg-orange-500/5 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-10 w-64 h-64 bg-orange-700/5 rounded-full blur-3xl"></div>
+        <div className={`absolute top-20 right-1/4 w-72 h-72 ${isDark ? 'bg-orange-600/5' : 'bg-orange-600/10'} rounded-full blur-3xl`}></div>
+        <div className={`absolute bottom-20 left-1/4 w-80 h-80 ${isDark ? 'bg-orange-500/5' : 'bg-orange-500/10'} rounded-full blur-3xl`}></div>
+        <div className={`absolute top-1/2 left-10 w-64 h-64 ${isDark ? 'bg-orange-700/5' : 'bg-orange-700/10'} rounded-full blur-3xl`}></div>
 
         {/* Hexagon pattern for depth */}
-        <div className="absolute inset-0 opacity-[0.015]">
+        <div className={`absolute inset-0 ${isDark ? 'opacity-[0.015]' : 'opacity-[0.03]'}`}>
           <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <pattern id="hexagons" patternUnits="userSpaceOnUse" width="100" height="100">
@@ -104,13 +104,13 @@ const Contact = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center px-4 py-2 bg-orange-600/20 border border-orange-500/30 rounded-full mb-4">
-            <span className="text-orange-400 font-semibold text-sm">Hubungi Kami</span>
+          <div className={`inline-flex items-center px-4 py-2 ${isDark ? 'bg-orange-600/20' : 'bg-orange-100'} border ${isDark ? 'border-orange-500/30' : 'border-orange-300'} rounded-full mb-4`}>
+            <span className={`${isDark ? 'text-orange-400' : 'text-orange-600'} font-semibold text-sm`}>Hubungi Kami</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className={`text-4xl md:text-5xl font-bold ${isDark ? 'text-white' : 'text-slate-900'} mb-4`}>
             Mari Wujudkan <span className="text-orange-500">Proyek Anda</span>
           </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+          <p className={`text-xl ${isDark ? 'text-gray-400' : 'text-slate-600'} max-w-3xl mx-auto`}>
             Hubungi kami untuk konsultasi gratis dan dapatkan penawaran terbaik
           </p>
         </div>
@@ -119,34 +119,34 @@ const Contact = () => {
           {/* Contact Info */}
           <div className="lg:col-span-1 space-y-6">
             {/* Address Card */}
-            <Card className="bg-slate-800/90 backdrop-blur-sm border-slate-700 hover:border-orange-500/50 transition-all duration-300">
+            <Card className={`${isDark ? 'bg-slate-800/90 border-slate-700' : 'bg-white border-gray-200 shadow-lg'} backdrop-blur-sm hover:border-orange-500/50 transition-all duration-300`}>
               <CardContent className="p-6">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-orange-600/20 rounded-lg flex items-center justify-center flex-shrink-0">
                     <MapPin className="text-orange-500" size={24} />
                   </div>
                   <div>
-                    <h3 className="text-white font-bold mb-2">Alamat</h3>
-                    <p className="text-gray-400 leading-relaxed">{companyInfo.address}</p>
+                    <h3 className={`${isDark ? 'text-white' : 'text-slate-900'} font-bold mb-2`}>Alamat</h3>
+                    <p className={`${isDark ? 'text-gray-400' : 'text-slate-600'} leading-relaxed`}>{companyInfo.address}</p>
                   </div>
                 </div>
               </CardContent>
             </Card>
 
             {/* Phone Card */}
-            <Card className="bg-slate-800/90 backdrop-blur-sm border-slate-700 hover:border-orange-500/50 transition-all duration-300">
+            <Card className={`${isDark ? 'bg-slate-800/90 border-slate-700' : 'bg-white border-gray-200 shadow-lg'} backdrop-blur-sm hover:border-orange-500/50 transition-all duration-300`}>
               <CardContent className="p-6">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-orange-600/20 rounded-lg flex items-center justify-center flex-shrink-0">
                     <Phone className="text-orange-500" size={24} />
                   </div>
                   <div>
-                    <h3 className="text-white font-bold mb-2">Telepon / WhatsApp</h3>
+                    <h3 className={`${isDark ? 'text-white' : 'text-slate-900'} font-bold mb-2`}>Telepon / WhatsApp</h3>
                     <a
                       href={companyInfo.whatsapp}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-gray-400 hover:text-orange-500 transition-colors"
+                      className={`${isDark ? 'text-gray-400' : 'text-slate-600'} hover:text-orange-500 transition-colors`}
                     >
                       {companyInfo.phone}
                     </a>
@@ -156,17 +156,17 @@ const Contact = () => {
             </Card>
 
             {/* Email Card */}
-            <Card className="bg-slate-800/90 backdrop-blur-sm border-slate-700 hover:border-orange-500/50 transition-all duration-300">
+            <Card className={`${isDark ? 'bg-slate-800/90 border-slate-700' : 'bg-white border-gray-200 shadow-lg'} backdrop-blur-sm hover:border-orange-500/50 transition-all duration-300`}>
               <CardContent className="p-6">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-orange-600/20 rounded-lg flex items-center justify-center flex-shrink-0">
                     <Mail className="text-orange-500" size={24} />
                   </div>
                   <div>
-                    <h3 className="text-white font-bold mb-2">Email</h3>
+                    <h3 className={`${isDark ? 'text-white' : 'text-slate-900'} font-bold mb-2`}>Email</h3>
                     <a
                       href={`mailto:${companyInfo.email}`}
-                      className="text-gray-400 hover:text-orange-500 transition-colors break-all"
+                      className={`${isDark ? 'text-gray-400' : 'text-slate-600'} hover:text-orange-500 transition-colors break-all`}
                     >
                       {companyInfo.email}
                     </a>
@@ -193,27 +193,27 @@ const Contact = () => {
 
           {/* Contact Form */}
           <div className="lg:col-span-2">
-            <Card className="bg-slate-800/90 backdrop-blur-sm border-slate-700">
+            <Card className={`${isDark ? 'bg-slate-800/90 border-slate-700' : 'bg-white border-gray-200 shadow-lg'} backdrop-blur-sm`}>
               <CardHeader>
-                <CardTitle className="text-2xl text-white">Kirim Pesan</CardTitle>
+                <CardTitle className={`text-2xl ${isDark ? 'text-white' : 'text-slate-900'}`}>Kirim Pesan</CardTitle>
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <Label htmlFor="name" className="text-gray-300">Nama Lengkap *</Label>
+                      <Label htmlFor="name" className={`${isDark ? 'text-gray-300' : 'text-slate-700'}`}>Nama Lengkap *</Label>
                       <Input
                         id="name"
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
                         required
-                        className="bg-slate-900 border-slate-700 text-white focus:border-orange-500"
+                        className={`${isDark ? 'bg-slate-900 border-slate-700 text-white' : 'bg-gray-50 border-gray-300 text-slate-900'} focus:border-orange-500`}
                         placeholder="Masukkan nama Anda"
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="email" className="text-gray-300">Email *</Label>
+                      <Label htmlFor="email" className={`${isDark ? 'text-gray-300' : 'text-slate-700'}`}>Email *</Label>
                       <Input
                         id="email"
                         name="email"
@@ -221,7 +221,7 @@ const Contact = () => {
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        className="bg-slate-900 border-slate-700 text-white focus:border-orange-500"
+                        className={`${isDark ? 'bg-slate-900 border-slate-700 text-white' : 'bg-gray-50 border-gray-300 text-slate-900'} focus:border-orange-500`}
                         placeholder="email@contoh.com"
                       />
                     </div>
@@ -229,7 +229,7 @@ const Contact = () => {
 
                   <div className="grid md:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <Label htmlFor="phone" className="text-gray-300">No. Telepon *</Label>
+                      <Label htmlFor="phone" className={`${isDark ? 'text-gray-300' : 'text-slate-700'}`}>No. Telepon *</Label>
                       <Input
                         id="phone"
                         name="phone"
@@ -237,26 +237,26 @@ const Contact = () => {
                         value={formData.phone}
                         onChange={handleChange}
                         required
-                        className="bg-slate-900 border-slate-700 text-white focus:border-orange-500"
+                        className={`${isDark ? 'bg-slate-900 border-slate-700 text-white' : 'bg-gray-50 border-gray-300 text-slate-900'} focus:border-orange-500`}
                         placeholder="08xxxxxxxxxx"
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="subject" className="text-gray-300">Subjek *</Label>
+                      <Label htmlFor="subject" className={`${isDark ? 'text-gray-300' : 'text-slate-700'}`}>Subjek *</Label>
                       <Input
                         id="subject"
                         name="subject"
                         value={formData.subject}
                         onChange={handleChange}
                         required
-                        className="bg-slate-900 border-slate-700 text-white focus:border-orange-500"
+                        className={`${isDark ? 'bg-slate-900 border-slate-700 text-white' : 'bg-gray-50 border-gray-300 text-slate-900'} focus:border-orange-500`}
                         placeholder="Perihal pesan Anda"
                       />
                     </div>
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="message" className="text-gray-300">Pesan *</Label>
+                    <Label htmlFor="message" className={`${isDark ? 'text-gray-300' : 'text-slate-700'}`}>Pesan *</Label>
                     <Textarea
                       id="message"
                       name="message"
@@ -264,7 +264,7 @@ const Contact = () => {
                       onChange={handleChange}
                       required
                       rows={6}
-                      className="bg-slate-900 border-slate-700 text-white focus:border-orange-500 resize-none"
+                      className={`${isDark ? 'bg-slate-900 border-slate-700 text-white' : 'bg-gray-50 border-gray-300 text-slate-900'} focus:border-orange-500 resize-none`}
                       placeholder="Tuliskan pesan atau pertanyaan Anda..."
                     />
                   </div>

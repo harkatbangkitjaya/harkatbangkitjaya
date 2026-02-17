@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
 import { Building2, PenTool, Wrench, Package, Users, Cable, Hammer, Box } from 'lucide-react';
-import { services, companyImages, marketingCopy } from '../data/mock';
+import { services, marketingCopy } from '../data/mock';
 
 const iconMap = {
   Building2,
@@ -35,46 +35,46 @@ const Services = () => {
 
   return (
     <section id="services" className="relative py-24 bg-slate-900 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header with Hero Image */}
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
-          {/* Left: Marketing Copy */}
-          <div>
-            <div className="inline-flex items-center px-4 py-2 bg-orange-600/20 border border-orange-500/30 rounded-full mb-4">
-              <span className="text-orange-400 font-semibold text-sm">{marketingCopy.services.tagline}</span>
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              {marketingCopy.services.title}
-            </h2>
-            <p className="text-2xl text-orange-500 font-semibold mb-4">
-              {marketingCopy.services.subtitle}
-            </p>
-            <p className="text-xl text-gray-400">
-              Kami menyediakan berbagai layanan berkualitas tinggi dengan tenaga ahli profesional dan berpengalaman untuk memastikan setiap proyek selesai dengan sempurna.
-            </p>
-          </div>
+      {/* Parallax Background Layer */}
+      <div 
+        className="absolute inset-0 z-0"
+        style={{
+          transform: `translateY(${offsetY * 0.2}px)`,
+          transition: 'transform 0.1s ease-out'
+        }}
+      >
+        <div className="absolute inset-0 bg-slate-900"></div>
+        <div className="absolute top-0 left-0 w-full h-full opacity-10">
+          <img
+            src="https://images.unsplash.com/photo-1759170154403-da5c94821be6"
+            alt=""
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/90 via-slate-900/95 to-slate-900"></div>
+      </div>
 
-          {/* Right: Circular Hero Image */}
-          <div className="relative flex justify-center lg:justify-end">
-            <div 
-              className="relative w-80 h-80 lg:w-96 lg:h-96"
-              style={{
-                transform: `translateY(${offsetY * 0.05}px)`,
-                transition: 'transform 0.1s ease-out'
-              }}
-            >
-              {/* Image circle */}
-              <img
-                src={companyImages.workerCircular}
-                alt="Professional Worker"
-                className="relative w-full h-full object-cover rounded-full border-4 border-orange-500/50 shadow-2xl shadow-orange-500/20"
-              />
-              {/* Badge */}
-              <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-orange-600 text-white px-6 py-3 rounded-full font-bold shadow-lg">
-                Profesional & Berpengalaman
-              </div>
-            </div>
+      {/* 3D Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+        <div className="absolute top-10 right-10 w-72 h-72 bg-orange-600/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-10 left-10 w-80 h-80 bg-orange-500/5 rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center px-4 py-2 bg-orange-600/20 border border-orange-500/30 rounded-full mb-4">
+            <span className="text-orange-400 font-semibold text-sm">{marketingCopy.services.tagline}</span>
           </div>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            {marketingCopy.services.title}
+          </h2>
+          <p className="text-2xl text-orange-500 font-semibold mb-4">
+            {marketingCopy.services.subtitle}
+          </p>
+          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+            Kami menyediakan berbagai layanan berkualitas tinggi dengan tenaga ahli profesional dan berpengalaman untuk memastikan setiap proyek selesai dengan sempurna.
+          </p>
         </div>
 
         {/* Services Grid */}

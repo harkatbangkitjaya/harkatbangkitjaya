@@ -17,12 +17,12 @@ const Footer = () => {
   ];
 
   const services = [
-    'Perawatan Bangunan',
-    'Arsitektur & Desain Interior',
-    'MEP',
-    'Perdagangan Umum',
-    'Tenaga Kerja Spesialis',
-    'Teknik Akses Tali'
+    'WaterProffing',
+    'Maquete',
+    'Interior Design',
+    'Electrical',
+    'Rope Access Technic',
+    'Architecture'
   ];
 
   const scrollToSection = (id) => {

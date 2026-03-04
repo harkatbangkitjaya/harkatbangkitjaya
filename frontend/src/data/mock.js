@@ -3,7 +3,7 @@
 export const companyInfo = {
   name: "PT. HARKAT BANGKIT JAYA",
   tagline: "Kontraktor dan Perdagangan Umum",
-  description: "PT. HARKAT BANGKIT JAYA adalah perusahaan yang bergerak di bidang jasa teknik, konstruksi, pemeliharaan bangunan, dan penyediaan tenaga kerja untuk layanan kebersihan indoor maupun outdoor, serta arsitektur.",
+  description: "PT. Harkat Bangkit Jaya adalah perusahaan yang bergerak dibidang jasa teknik, konstruksi, pemeliharaan bangunan, dan penyediaan tenaga kerja untuk layanan kebersihan indoor maupun outdoor, serta arsitektur. Sejak didirikan pada tahun 2025.",
   founded: "2025",
   address: "Jl. Bebedahan 1 No.14 Kota Tasikmalaya, Jawa Barat 46111",
   phone: "082289891300",
@@ -14,51 +14,27 @@ export const companyInfo = {
 export const services = [
   {
     id: 1,
-    title: "Perawatan Bangunan dan Gedung",
-    description: "Layanan pemeliharaan dan perawatan bangunan secara menyeluruh untuk memastikan kondisi optimal gedung Anda.",
-    icon: "Building2"
+    title: "Mechanical & Electrical",
+    description: "Steel Construction, Installation Piping System, Installation Ducting & Plumbing, Installation Cable Power & Control (Substation), Termination Medium & High Voltage, Installation Panel.",
+    icon: "Wrench"
   },
   {
     id: 2,
-    title: "Arsitektur dan Desain Interior",
-    description: "Desain arsitektur modern dan interior yang fungsional sesuai kebutuhan dan gaya Anda.",
+    title: "Construction - Architecture",
+    description: "Architecture, Design Interior, Construction Civil - Fabrication, Landscape, Scale Model, Diorama & Maquette.",
     icon: "PenTool"
   },
   {
     id: 3,
-    title: "Mekanikal - Listrik - Plumbing (MEP)",
-    description: "Instalasi dan pemeliharaan sistem MEP untuk kenyamanan dan efisiensi bangunan Anda.",
-    icon: "Wrench"
+    title: "Maintenance Services Building & Industry",
+    description: "Cleaning Build System RAT (Rope Access Technic), Water Proofing – Inject - Sealant, Coating Flooring Epoxy, Chemical Anchor, FRP Linning, Protective Coating.",
+    icon: "Building2"
   },
   {
     id: 4,
-    title: "Perdagangan Umum",
-    description: "Penyediaan material dan peralatan konstruksi berkualitas tinggi dengan harga kompetitif.",
+    title: "General Supplier",
+    description: "Tools Equipment Industry & Oil-Gas, Consumable, Supply Labour.",
     icon: "Package"
-  },
-  {
-    id: 5,
-    title: "Penyedia Tenaga Kerja Spesialis",
-    description: "Tenaga kerja profesional dan terlatih untuk berbagai kebutuhan proyek konstruksi Anda.",
-    icon: "Users"
-  },
-  {
-    id: 6,
-    title: "Teknik Akses Tali",
-    description: "Layanan akses tali profesional untuk pekerjaan di ketinggian dengan standar keselamatan tinggi.",
-    icon: "Cable"
-  },
-  {
-    id: 7,
-    title: "Fabrikasi & Pemasangan Struktur",
-    description: "Fabrikasi dan instalasi struktur bangunan dengan presisi dan kualitas terjamin.",
-    icon: "Hammer"
-  },
-  {
-    id: 8,
-    title: "Model Skala - Maquete - Diorama",
-    description: "Pembuatan model skala dan diorama untuk presentasi proyek yang lebih menarik dan detail.",
-    icon: "Box"
   }
 ];
 
@@ -129,17 +105,17 @@ export const marketingCopy = {
 export const projects = [
   {
     id: 1,
-    title: "Perawatan Gedung Perkantoran",
-    category: "Building Maintenance",
-    image: "https://nemuftsdmjzkzcygkjpg.supabase.co/storage/v1/object/public/assets-devaq/pt-harkat-bangkit-jaya/perawatan-gedung-perkantoran.webp",
-    description: "Perawatan fasad dan maintenance gedung perkantoran modern"
+    title: "Waterproofing",
+    category: "Waterproofing",
+    image: "https://nemuftsdmjzkzcygkjpg.supabase.co/storage/v1/object/public/assets-devaq/pt-harkat-bangkit-jaya/waterproofing.webp",
+    description: "Pengerjaan Water Proofing, Inject, & Sealant oleh tenaga ahli PT. Harkat Bangkit Jaya untuk ketahanan struktur jangka panjang."
   },
   {
     id: 2,
-    title: "Konstruksi Bangunan Komersial",
-    category: "Construction",
-    image: "https://nemuftsdmjzkzcygkjpg.supabase.co/storage/v1/object/public/assets-devaq/pt-harkat-bangkit-jaya/kontruksi-bangunan-komersial.webp",
-    description: "Pembangunan gedung komersial dengan standar internasional"
+    title: "Maquete",
+    category: "Maquete",
+    image: "https://nemuftsdmjzkzcygkjpg.supabase.co/storage/v1/object/public/assets-devaq/pt-harkat-bangkit-jaya/maquete.webp",
+    description: "Visualisasi proyek melalui Scale Model & Maquette dengan detail presisi untuk mempresentasikan konsep arsitektur secara nyata."
   },
   {
     id: 3,
@@ -150,17 +126,17 @@ export const projects = [
   },
   {
     id: 4,
-    title: "Instalasi MEP",
-    category: "MEP",
+    title: "Electrical Installation Panel",
+    category: "ELECTRICAL",
     image: "https://nemuftsdmjzkzcygkjpg.supabase.co/storage/v1/object/public/assets-devaq/pt-harkat-bangkit-jaya/instalasi-mep.webp",
     description: "Instalasi sistem mekanikal, elektrikal, dan plumbing"
   },
   {
     id: 5,
-    title: "Pembersihan Fasad",
-    category: "Facade Cleaning",
-    image: "https://nemuftsdmjzkzcygkjpg.supabase.co/storage/v1/object/public/assets-devaq/pt-harkat-bangkit-jaya/pembersihan-fasad.webp",
-    description: "Layanan pembersihan fasad gedung tinggi dengan teknik rope access"
+    title: "Rope Access Technic",
+    category: "Rope Access Technic",
+    image: "https://nemuftsdmjzkzcygkjpg.supabase.co/storage/v1/object/public/assets-devaq/pt-harkat-bangkit-jaya/rope.webp",
+    description: "Layanan Cleaning Build System RAT (Rope Access Technic) oleh tim ahli untuk perawatan fasad gedung tinggi secara aman dan efisien."
   },
   {
     id: 6,

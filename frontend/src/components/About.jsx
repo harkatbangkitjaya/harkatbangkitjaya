@@ -80,7 +80,7 @@ const About = () => {
                 {companyInfo.description}
               </p>
               <p className={`${isDark ? 'text-gray-300' : 'text-slate-700'} text-lg leading-relaxed`}>
-                Kami berkomitmen untuk menyediakan kontrol kualitas proyek kelas satu dan layanan teknis premium di bidang rekayasa proyek, pengadaan, fabrikasi, dan khususnya layanan pemeliharaan bangunan.
+              Komitmen kami adalah menyediakan layanan proyek bernilaitambah dengan biaya kompetitif dan mendukung inisiatif setiap kliendengan hasil berkualitas tinggi.
               </p>
             </CardContent>
           </Card>

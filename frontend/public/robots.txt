@@ -1,5 +1,5 @@
 # robots.txt for PT Harkat Bangkit Jaya
-# Website: https://harkabangkitjaya.com
+# Website: https://harkatbangkitjaya.com
 
 # Allow all search engines to crawl
 User-agent: *
@@ -35,7 +35,7 @@ Allow: /images/
 Allow: /assets/
 
 # Sitemap location
-Sitemap: https://harkabangkitjaya.com/sitemap.xml
+Sitemap: https://harkatbangkitjaya.com/sitemap.xml
 
 # Host directive for Yandex
-Host: https://harkabangkitjaya.com
+Host: https://harkatbangkitjaya.com

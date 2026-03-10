@@ -48,7 +48,7 @@ const Contact = () => {
           message: formData.message,
           from_name: 'PT. Harkat Bangkit Jaya - Website Contact Form',
           replyto: formData.email, // Reply to customer email
-          ccemail: `maulanamalikjb147@gmail.com,${formData.email}`, // CC to admin and customer
+          //ccemail: `maulanamalikjb147@gmail.com,${formData.email}`, // CC to admin and customer
         }),
       });
 

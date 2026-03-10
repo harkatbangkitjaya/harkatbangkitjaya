@@ -1,0 +1,41 @@
+# robots.txt for PT Harkat Bangkit Jaya
+# Website: https://harkabangkitjaya.com
+
+# Allow all search engines to crawl
+User-agent: *
+Allow: /
+
+# Allow Googlebot specifically
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+# Allow Bingbot
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 2
+
+# Allow Yandex
+User-agent: Yandex
+Allow: /
+Crawl-delay: 2
+
+# Disallow sensitive directories
+Disallow: /api/
+Disallow: /admin/
+Disallow: /.env
+Disallow: /private/
+Disallow: /*.json$
+Disallow: /static/js/*.map
+Disallow: /static/css/*.map
+
+# Allow important static resources
+Allow: /static/
+Allow: /images/
+Allow: /assets/
+
+# Sitemap location
+Sitemap: https://harkabangkitjaya.com/sitemap.xml
+
+# Host directive for Yandex
+Host: https://harkabangkitjaya.com

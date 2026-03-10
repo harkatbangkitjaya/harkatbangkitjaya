@@ -143,7 +143,7 @@ const Footer = () => {
             </p>
             <div className="flex gap-6 text-sm">
               <button className={`${isDark ? 'text-gray-400' : 'text-slate-500'} hover:text-orange-500 transition-colors`}>
-                Created by <a href="https://devaq.maulanamalik.my.id/">Devaq Webdevloper</a>
+                Created by <a href="https://devaq.id/">Devaq Webdevloper</a>
               </button>
             </div>
           </div>
